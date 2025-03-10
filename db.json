@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "a526",
+      "nombre": "JDiego",
+      "email": "jdcc@gmail.com",
+      "password": "444"
+    },
+    {
+      "id": "29f2",
+      "nombre": "Dear",
+      "email": "Dear@gmail.com",
+      "password": "333"
+    },
+    {
+      "id": "f7c6",
+      "nombre": "Luis",
+      "email": "Lupe33@gmail.com",
+      "password": "0011"
+    },
+    {
+      "id": "30b3",
+      "nombre": "Memp",
+      "email": "memp@fwd.com",
+      "password": "000"
+    }
+  ],
+  "books": [
+    {
+      "id": "db2b",
+      "namebook": "Cuento",
+      "autorbook": "Allan Poe",
+      "statusbook": "Perfect"
+    },
+    {
+      "id": "806d",
+      "namebook": "Relatos",
+      "autorbook": "Hp-LoveCraft",
+      "statusbook": "Perfect"
+    },
+    {
+      "newNameBook": "NewBook",
+      "id": "02c9"
+    }
+  ]
+}
