@@ -13,12 +13,6 @@
       "password": "333"
     },
     {
-      "id": "f7c6",
-      "nombre": "Luis",
-      "email": "Lupe33@gmail.com",
-      "password": "0011"
-    },
-    {
       "id": "30b3",
       "nombre": "Memp",
       "email": "memp@fwd.com",
@@ -27,20 +21,32 @@
   ],
   "books": [
     {
-      "id": "db2b",
-      "namebook": "Cuento",
-      "autorbook": "Allan Poe",
-      "statusbook": "Perfect"
+      "id": "ea3b",
+      "namebook": "La Sombra del Viento",
+      "autorbook": "Carlos Ruiz Zafón",
+      "statusbook": "Perfect",
+      "borrowBook": false
     },
     {
-      "id": "806d",
-      "namebook": "Relatos",
-      "autorbook": "Hp-LoveCraft",
-      "statusbook": "Perfect"
+      "id": "86ac",
+      "namebook": "El principito 2",
+      "autorbook": " antoine de saint",
+      "statusbook": "very good",
+      "borrowBook": false
     },
     {
-      "newNameBook": "NewBook",
-      "id": "02c9"
+      "id": "ba03",
+      "namebook": "Cien años de soledad",
+      "autorbook": "Gabriel García Marquez",
+      "statusbook": "Bad",
+      "borrowBook": false
+    },
+    {
+      "id": "1e5d",
+      "namebook": "El cuervo",
+      "autorbook": "Allan Poe ",
+      "statusbook": "Perfect",
+      "borrowBook": false
     }
   ]
 }

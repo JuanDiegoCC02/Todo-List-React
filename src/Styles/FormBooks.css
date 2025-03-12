@@ -1,0 +1,59 @@
+.ContainerAllForm{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(105, 105, 144);
+}
+.FormNameBook{
+    color: rgb(127, 127, 171);
+
+}
+
+.TituloP{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(2, 44, 70);
+    border-style: ridge;
+    text-shadow: 2px 2px 5px rgb(91, 172, 151);
+    background-color: rgb(23, 67, 83);
+    border-color: rgb(3, 56, 60);
+    border-width: 14px;
+    padding: 5px;
+}
+.Line{
+    height: 5px;
+border-style: outset;
+border-width: 5px;
+border-color:   rgb(8, 53, 62);
+}
+.FormContainer{
+    border-style: groove;
+    border-color: rgb(8, 53, 62);
+    border-width: 10px;
+}
+.ContainerNewBook{
+   
+        margin: 25px;
+        border-style: groove;
+        border-width: 5px;
+        border-color: rgb(63, 59, 80);
+        
+        
+}
+.ListaBooks{
+    list-style-type: none;
+    
+    
+}
+
+.btnDelete{
+    margin: 3px;
+    color: rgb(6, 164, 122);
+}
+.btnEdit{
+    margin: 3px;
+    color: rgb(6, 164, 122);
+
+    
+}
+.btnChecbox{
+    margin: 3px;
+
+}

@@ -18,17 +18,18 @@ async function getBooks() {
         throw error;
     }
 }
-
+export {getBooks}
 
 //////////LLAMADO POST//////////
 
-async function postBooks(namebook,autorbook,statusbook) {
+async function postBooks(namebook,autorbook,statusbook,borrowBook) {
     try {
      
         const userData = { 
             namebook,
             autorbook,
-            statusbook  
+            statusbook,
+            borrowBook
         
         };
 
@@ -61,15 +62,13 @@ async function updateBooks(book, id)
 {
     try {
 
-        const response = await fetch(`http://localhost:3000/books/${id}`, {
+        const response = await fetch(`http://localhost:3000/books/${id}/`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(book)
         });
-
-     
         return await response.json();
     } catch (error) {
         console.error('Error update book:', error);

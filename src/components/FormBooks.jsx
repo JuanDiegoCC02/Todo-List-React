@@ -1,123 +1,159 @@
-import React, { useEffect, useState } from 'react'
-import llamadoBooks from '../Services/llamadosbooks'
-
-
-
-function FormBooks() {
+    import React, { useEffect, useState } from 'react'
+    import llamadoBooks, { updateBooks } from '../Services/llamadosbooks'
     
-    const [NameBook, SetNameBook]=useState()
-    const [AutorBook, SetAutorBook]=useState()
-    const [StatusBook, SetStatusBook]=useState()
-    const [mostrar,setMostrar] = useState(false)
-    const [books, SetBooks] = useState([])
-    const [editNombre,setEditNombre] = useState("")
-    
+    import '../Styles/FormBooks.css'
 
-    function namebook(evento) {
-        SetNameBook(evento.target.value)
-    }
 
-    function autorbook(evento) {
-        SetAutorBook(evento.target.value)
-    }
 
-    function statusbook(evento) {
-        SetStatusBook(evento.target.value)
-    }
+    function FormBooks() {
 
-    function eliminar (id) {
-        llamadoBooks.deleteBooks(id)
         
-    }   
-
-function editar(id) {
-    const book = {
-
-    }
-    
-    llamadoBooks.updateBooks(newName, id)
-}
-
-useEffect(()=>{
-    async function lista() {
-        const datos = await llamadoBooks.getBooks ("books")
-        SetBooks (datos)
-    
-}
-lista()
-}, [] )
-
-    function post() {  
-    
         
-        llamadoBooks.postBooks( NameBook, AutorBook, StatusBook)
+        const [NameBook, SetNameBook]=useState()
+        const [AutorBook, SetAutorBook]=useState()
+        const [StatusBook, SetStatusBook]=useState()
+        const [mostrar,setMostrar] = useState(false)
+        const [books, SetBooks] = useState([])
+        const [editNombre,setEditNombre] = useState("")
+        const [editAutor,setEditAutor] = useState("")
+        const [editStatus,setEditStatus] = useState("")
+        const [recarga,setRecarga] = useState(false)
+        const [bookCheck, setBookCheck] = useState("")
+       
+
+        const handleBookCheck = async(id, index) => {
+            const updatedBooks = [...books]
+            updatedBooks[index].borrowBook = !updatedBooks[index].borrowBook
+            await updateBooks(
+                {"borrowBook": updatedBooks[index].borrowBook}, id)
+            SetBooks(updatedBooks)
+        }
+
+       
+
+        
+
+        function namebook(evento) {
+            SetNameBook(evento.target.value)
+        }
+
+        function autorbook(evento) {
+            SetAutorBook(evento.target.value)
+        }
+
+        function statusbook(evento) {
+            SetStatusBook(evento.target.value)
+        }
+
+        function newname(evento){
+            setEditNombre(evento.target.value)
+        }
+        function newauthor(evento){
+            setEditAutor(evento.target.value)
+        }
+        function newestatus(evento){
+            setEditStatus(evento.target.value)
+        }
+
+        function eliminar (id) {
+            llamadoBooks.deleteBooks(id)
+            setRecarga(!recarga);
+        }   
+// Funcion Editar
+    function editar(id) {
+        const libroEditar = {
+            "namebook":editNombre,
+            "autorbook":editAutor,
+            "statusbook":editStatus
+        }   
+        llamadoBooks.updateBooks(libroEditar, id)
+        setRecarga(!recarga);
     }
 
-  return (
+    useEffect(()=>{
+        async function lista() {
+            const datos = await llamadoBooks.getBooks ("books")
+            SetBooks (datos)
+    }
+    lista()
+    }, [recarga] )
 
+        function post() {          
+            llamadoBooks.postBooks( NameBook, AutorBook, StatusBook,false)
+            setRecarga(!recarga)
+        }
 
+    return (
 
+        <div className='ContainerAllForm'> 
 
-    <div>
+        <h1 className='TituloP'>Form News Books</h1>
+        
+        <div className='FormContainer' >
+            <h1>Info Books</h1>
+        <div className='FormNameBook'>
+            <label htmlFor="">Name of Book</label><br />
+            <input value={NameBook} onChange={namebook} type="text" />
+        </div>
 
-    <h1>Form News Books</h1>
-    
-    <div>
-        <label htmlFor="">Name of Book</label><br />
-        <input value={NameBook} onChange={namebook} type="text" />
-    </div>
+        <div>
+            <label htmlFor="">Author of Book</label><br />
+            <input value={AutorBook} onChange={autorbook} type="text" />
+        </div>
 
-    <div>
-        <label htmlFor="">Autor of Book</label><br />
-        <input value={AutorBook} onChange={autorbook} type="text" />
-    </div>
+        <div>
+            <label htmlFor="">Status of Book</label><br />
+            <input value={StatusBook} onChange={statusbook} type="text" />
+        </div>
 
-    <div>
-        <label htmlFor="">Status of Book</label><br />
-        <input value={StatusBook} onChange={statusbook} type="text" />
-    </div>
+        <input onClick={post} type="button" value="Post" />
+        <div>
+        </div>
+        <br /> <hr  className='Line'/>
 
-    <input onClick={post} type="button" value="Post" />
+    <ul className='ListaBooks'>    
+        <h1>News Books</h1>
+    {books.map ((libro,index) => (
+        <li className='ContainerNewBook' key={index}>
+        <strong>Book Name:</strong> <br /> {libro.namebook} <br />
 
+        <strong>Book Author:</strong> <br /> {libro.autorbook} <br />
 
-    <div>
+        <strong>Book Status:</strong> <br /> {libro.statusbook} <br />
+        
 
-<ul>
-  {books.map ((libro,index) => (
-    <li key={index}>
-      <strong>Book Name:</strong> {libro.namebook} <br />
+<div>
+        <label htmlFor="">Book Check</label>
+        <input className='btnCheckbox'
+         type="checkbox" 
+         name="bookCheck" 
+         id="bookCheck" 
+         checked={libro.borrowBook}
+         onClick={()=>handleBookCheck(libro.id,index)}
 
-      <strong>Book Author:</strong> {libro.autorbook} <br />
-
-      <strong>Book Status:</strong> {libro.statusbook} <br />
-      
-      <button onClick={e=>eliminar(libro.id)}>Eliminar</button>
-      <button onClick={()=>setMostrar(!mostrar)}>Editar</button>
-      {mostrar &&
-      <>
-      <input type="text" placeholder='Nombre' />
-      <input type="text" placeholder='Autor'/>
-      <input type="text" placeholder='Estatus'/>
-      </>
-      }
-      <input type="checkbox" name="" id="" />
-      
-
-     
-    </li> 
-  ))}
-</ul>
-
-
-
+        />
+       
+        
+        <button className='btnDelete' onClick={e=>eliminar(libro.id)}>Delete</button>
+        <button className='btnEdit' onClick={()=>setMostrar(!mostrar)}>Edit</button>
+        {mostrar &&
+        <>
+        <input onChange={newname} type="text" placeholder='Nombre' />
+        <input onChange={newauthor} type="text" placeholder='Autor'/>
+        <input  onChange={newestatus} type="text" placeholder='Estatus'/>
+        <button onClick={()=>editar(libro.id)}>EDITAR</button>
+        </>
+        }
 </div>
-
+        </li> 
+    ))}
+    </ul>
 
     </div>
 
+        </div>
 
+    )
+    }
 
-  )
-}
-
-export default FormBooks
+    export default FormBooks
