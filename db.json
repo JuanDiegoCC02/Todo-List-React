@@ -35,13 +35,6 @@
       "borrowBook": false
     },
     {
-      "id": "ba03",
-      "namebook": "Cien años de soledad",
-      "autorbook": "Gabriel García Marquez",
-      "statusbook": "Bad",
-      "borrowBook": false
-    },
-    {
       "id": "1e5d",
       "namebook": "El cuervo",
       "autorbook": "Allan Poe ",

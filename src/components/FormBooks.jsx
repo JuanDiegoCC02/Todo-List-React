@@ -6,8 +6,6 @@
 
 
     function FormBooks() {
-
-        
         
         const [NameBook, SetNameBook]=useState()
         const [AutorBook, SetAutorBook]=useState()
@@ -19,14 +17,21 @@
         const [editStatus,setEditStatus] = useState("")
         const [recarga,setRecarga] = useState(false)
         const [bookCheck, setBookCheck] = useState("")
-       
+        const [count, setCount] = useState(0)
+
 
         const handleBookCheck = async(id, index) => {
             const updatedBooks = [...books]
+
             updatedBooks[index].borrowBook = !updatedBooks[index].borrowBook
             await updateBooks(
                 {"borrowBook": updatedBooks[index].borrowBook}, id)
-            SetBooks(updatedBooks)
+            SetBooks(updatedBooks);
+            if (updatedBooks[index].borrowBook) {
+                setCount(count + 1);
+            } else {
+                setCount(count - 1);
+            }
         }
 
        
@@ -107,8 +112,11 @@
         </div>
 
         <input onClick={post} type="button" value="Post" />
-        <div>
+        <div><br />
         </div>
+        <h3>Count Books Check</h3>
+        <h4>{count}</h4>
+
         <br /> <hr  className='Line'/>
 
     <ul className='ListaBooks'>    
@@ -129,7 +137,7 @@
          name="bookCheck" 
          id="bookCheck" 
          checked={libro.borrowBook}
-         onClick={()=>handleBookCheck(libro.id,index)}
+         onChange={()=>handleBookCheck(libro.id,index)}
 
         />
        
