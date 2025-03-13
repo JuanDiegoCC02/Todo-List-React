@@ -7,16 +7,10 @@
       "password": "444"
     },
     {
-      "id": "29f2",
-      "nombre": "Dear",
-      "email": "Dear@gmail.com",
-      "password": "333"
-    },
-    {
-      "id": "30b3",
-      "nombre": "Memp",
-      "email": "memp@fwd.com",
-      "password": "000"
+      "id": "5334",
+      "nombre": "User",
+      "email": "userEmail.com",
+      "password": "111"
     }
   ],
   "books": [
@@ -29,9 +23,9 @@
     },
     {
       "id": "86ac",
-      "namebook": "El principito 2",
-      "autorbook": " antoine de saint",
-      "statusbook": "very good",
+      "namebook": "El Principito",
+      "autorbook": "Antoine de Saint",
+      "statusbook": "Very Good",
       "borrowBook": false
     },
     {
