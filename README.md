@@ -1,12 +1,20 @@
-# React + Vite
+README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Estudiante: Juan Diego Corella Camacho 
 
-Currently, two official plugins are available:
+Practica Todo List Libros (React)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Esta practica se basa en la funcionalidad de un Todo-List para una app de Intercambio de Libros.
 
-## Expanding the ESLint configuration
+Este todo-list es la funcionalidad de una app web de intercambio de libros en este caso la app permite añadir libros de intercambio, tambien ofrece la opcion de Eliminar los libros publicados o bien Editar el contenido de la publicacion ya realizada, tambien tiene añadida una funcion de un checkbox que cambia el estado de las publicaciones para marcarlas con un check, esto las añade a un contador de libros intercambiados completados.
+Por otro lado para el ingreso genere un Log In como registro de Usuarios y un Sign In como Ingreso y validacion de Usuarios.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+En esta Pracica las Tecnologias Utilizadas.
+React (useState, useEffect).
+HTML y JS.
+CSS.
+Funciones Asincronicas (handleBookCheck).
+Map.
+LLamadosBooks.
+LLamadosUsers.
+
