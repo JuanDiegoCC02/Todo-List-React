@@ -1,6 +1,6 @@
-async function getBooks() {
+async function getRecipes() {
     try {
-        const response = await fetch('http://localhost:3000/books', {
+        const response = await fetch('http://localhost:3000/recipes', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -8,34 +8,35 @@ async function getBooks() {
         });
 
         if (!response.ok) {
-            throw new Error('Error fetching books');
+            throw new Error('Error fetching recipes');
         }
 
-        const books = await response.json();
-        return books;
+        const recipes = await response.json();
+        return recipes;
     } catch (error) {
         console.error('Error fetching users:', error);
         throw error;
     }
 }
-export {getBooks}
+export {getRecipes}
 
 //////////LLAMADO POST//////////
 
-async function postBooks(namebook,autorbook,statusbook,borrowBook) {
+async function postRecipes(nameRecipe,ingredientsRecipe, cookingProcess,statusRecipe,completeRecipe) {
     try {
      
         const userData = { 
-            namebook,
-            autorbook,
-            statusbook,
-            borrowBook
+            nameRecipe,
+            ingredientsRecipe,
+            cookingProcess,
+            statusRecipe,
+            completeRecipe
         
         };
 
 
 
-        const response = await fetch("http://localhost:3000/books", {
+        const response = await fetch("http://localhost:3000/recipes", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -53,21 +54,21 @@ async function postBooks(namebook,autorbook,statusbook,borrowBook) {
     }
 }
 
-export{postBooks}
+export{postRecipes}
 
 //////////////LLAMADO UPDATE/////////////
 
 
-async function updateBooks(book, id) 
+async function updateRecipes(recipe, id) 
 {
     try {
 
-        const response = await fetch(`http://localhost:3000/books/${id}/`, {
+        const response = await fetch(`http://localhost:3000/recipes/${id}/`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(book)
+            body: JSON.stringify(recipe)
         });
         return await response.json();
     } catch (error) {
@@ -76,16 +77,16 @@ async function updateBooks(book, id)
     }
 }
 
-export{updateBooks}
+export{updateRecipes}
 
 
 
 //////////////LLAMADO DELETE/////////////
 
 
-async function deleteBooks(id) {
+async function deleteRecipes(id) {
     try {
-        const response = await fetch(`http://localhost:3000/books/${id}`, {
+        const response = await fetch(`http://localhost:3000/recipes/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -103,14 +104,6 @@ async function deleteBooks(id) {
     }
 }
 
-export { deleteBooks };
+export { deleteRecipes };
 
 
-const llamadoBooks = {
-    getBooks,
-    postBooks,
-    updateBooks,
-    deleteBooks
-};
-
-export default llamadoBooks;

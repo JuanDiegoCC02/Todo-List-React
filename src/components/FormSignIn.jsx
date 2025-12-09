@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import llamadoServicios from '../Services/llamados';
+import { getUsers } from '../Services/llamados';
 
 
 function FormSignIn() {
@@ -13,7 +13,7 @@ function FormSignIn() {
    useEffect(() => {
 
     async function fetchDataUsers() {
-      const datos = await llamadoServicios.getUsers()
+      const datos = await getUsers()
       SetUsuarios(datos)
     };
     fetchDataUsers();
@@ -37,7 +37,7 @@ const encontrado = usuarios.filter(usuario => usuario.nombre===Username && usuar
 if (encontrado.length === 0) {
   console.log ("Usuario o Contraseña   incorrecto")
 } else {
-  navigate('/TodoList')
+  navigate('/recipesTodoList')
 }
 
     

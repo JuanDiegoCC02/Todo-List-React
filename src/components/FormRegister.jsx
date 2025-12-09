@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import llamadoServicios from '../Services/llamados';
+
 import { Link, useNavigate } from 'react-router-dom';
+import { postUsers } from '../Services/llamados';
 
 
 function FormRegister() {
@@ -12,19 +13,18 @@ function FormRegister() {
         const navigate = useNavigate ()
 
         function nombre(evento){
-                SetUserName(evento.target.value)
+         SetUserName(evento.target.value)
         }
         function email(evento){
-                SetEmail(evento.target.value)
+          SetEmail(evento.target.value)
         }
         function password(evento){
-                SetPassword(evento.target.value)
+         SetPassword(evento.target.value)
         }
 
         function registrar (){
-                llamadoServicios.postUsers(Username, Email, Password)
-
-                navigate ('/SignIn')
+         postUsers(Username, Email, Password)
+        navigate ('/SignIn')
         }
 
     

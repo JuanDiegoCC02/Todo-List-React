@@ -13,27 +13,14 @@
       "password": "111"
     }
   ],
-  "books": [
+  "recipes": [
     {
-      "id": "ea3b",
-      "namebook": "La Sombra del Viento",
-      "autorbook": "Carlos Ruiz Zafón",
-      "statusbook": "Perfect",
-      "borrowBook": false
-    },
-    {
-      "id": "86ac",
-      "namebook": "El Principito",
-      "autorbook": "Antoine de Saint",
-      "statusbook": "Very Good",
-      "borrowBook": false
-    },
-    {
-      "id": "1e5d",
-      "namebook": "El cuervo",
-      "autorbook": "Allan Poe ",
-      "statusbook": "Perfect",
-      "borrowBook": false
+      "id": "010f",
+      "nameRecipe": "Recipe test",
+      "ingredientsRecipe": "test ingredients",
+      "cookingProcess": "test process",
+      "statusRecipe": "test ",
+      "completeRecipe": true
     }
   ]
 }

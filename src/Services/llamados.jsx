@@ -117,13 +117,3 @@ async function deleteUser(id) {
 }
 
 export { deleteUser };
-
-
-const llamadoServicios = {
-    getUsers,
-    postUsers,
-    updateUsers,
-    deleteUser
-};
-
-export default llamadoServicios;
