@@ -51,7 +51,7 @@ if (encontrado.length === 0) {
 
   return (
     <div>
-        <h1>Sign In</h1>
+        <h1>Library <br /> Sign In</h1>
 
         <div>
         <label htmlFor="">Username:</label><br />
@@ -65,7 +65,7 @@ if (encontrado.length === 0) {
 
         <input  onClick={inicia} type="button" value="Iniciar" />
 
-        <p>¿No tienes una Cuenta? <br /> <Link to="/LogIn">Crea una en Log In</Link> </p>
+        <p>¿No tienes una Cuenta? <br /> <Link to="/register">Crea una en Log In</Link> </p>
     
     </div>
   )

@@ -1,5 +1,5 @@
 import React from 'react';
-import LogIn from '../pages/LogIn';
+import Register from '../pages/Register';
 import SignIn from '../pages/SignIn';
 import TodoList from '../pages/TodoList';
 
@@ -15,7 +15,7 @@ function Routing() {
       <Router>
         <Routes>
             <Route path='/signin' element={<SignIn/>}/>
-            <Route path="/login" element={<LogIn/>}/>
+            <Route path="/register" element={<Register/>}/>
             <Route path="/todolist" element={<TodoList/>}/>
 
         </Routes>

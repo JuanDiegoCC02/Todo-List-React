@@ -3,7 +3,7 @@ import llamadoServicios from '../Services/llamados';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-function FormLogIn() {
+function FormRegister() {
 
         const[Username, SetUserName]=useState()
         const[Email, SetEmail]=useState()
@@ -31,7 +31,7 @@ function FormLogIn() {
 
   return (
     <div>
-     <h1>Log In</h1>
+     <h1>Library <br /> Register</h1>
         <div>
           <label htmlFor="">Username:</label><br />
                 <input value={Username} onChange={nombre} type="text" />
@@ -57,4 +57,4 @@ function FormLogIn() {
   )
 }
 
-export default FormLogIn
+export default FormRegister
