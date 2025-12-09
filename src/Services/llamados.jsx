@@ -23,13 +23,14 @@ export { getUsers };
 
 //////////LLAMADO POST//////////
 
-async function postUsers(nombre,email,password) {
+async function postUsers(username,email,password,typeUser) {
     try {
      
         const userData = { 
-            nombre,
+            username,
             email,
-            password 
+            password,
+            typeUser
         
         };
 
@@ -58,14 +59,14 @@ export{postUsers}
 //////////////LLAMADO UPDATE/////////////
 
 
-async function updateUsers(nombre,apellido,edad,id) 
+async function updateUsers(username,email,password,id) 
 {
     try {
      
         const userData = { 
-            nombre, 
-            apellido,
-            edad
+            username, 
+            email,
+            password
         
         };
 

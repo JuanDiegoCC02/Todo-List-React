@@ -6,25 +6,25 @@ import { postUsers } from '../Services/llamados';
 
 function FormRegister() {
 
-        const[Username, SetUserName]=useState()
-        const[Email, SetEmail]=useState()
-        const[Password, SetPassword]=useState()
+        const[Username, setUserName]=useState()
+        const[Email, setEmail]=useState()
+        const[Password, setPassword]=useState()
 
         const navigate = useNavigate ()
 
-        function nombre(evento){
-         SetUserName(evento.target.value)
+        function userName(evento){
+         setUserName(evento.target.value)
         }
         function email(evento){
-          SetEmail(evento.target.value)
+          setEmail(evento.target.value)
         }
         function password(evento){
-         SetPassword(evento.target.value)
+         setPassword(evento.target.value)
         }
 
-        function registrar (){
-         postUsers(Username, Email, Password)
-        navigate ('/SignIn')
+        function register (){
+         postUsers(Username, Email, Password, "User")
+        navigate ('/signIn')
         }
 
     
@@ -34,24 +34,24 @@ function FormRegister() {
      <h1>Library <br /> Register</h1>
         <div>
           <label htmlFor="">Username:</label><br />
-                <input value={Username} onChange={nombre} type="text" />
+                <input value={Username} onChange={userName} type="text" />
         </div>
         <div>
           <label htmlFor="">Email:</label><br />
-                <input value={Email} onChange={email} type="email" name="" id="correo" />
+                <input value={Email} onChange={email} type="email" name="" id="email" />
         </div>
         <div>
           <label htmlFor="">Password:</label><br />
-                <input value={Password} onChange={password} type="password" name="" id="contraseña" />
+                <input value={Password} onChange={password} type="password" name="" id="password" />
         </div>
         <div>
-          <label htmlFor="">Terminos y Condiciones</label>
+          <label htmlFor="">Terms & Conditions</label>
                 <input type="checkbox" name="" id="" />
         </div>
 
-<input type="button" value="Registrar" onClick={registrar} />
+<input type="button" value="register" onClick={register} />
 
-<p>¿Ya tienes una Cuenta? <br /><Link to="/SignIn">Ingresa en el Sign In</Link></p>
+<p>Do you already have an account? <br /><Link to="/signIn">Sign In</Link></p>
 
     </div>
   )

@@ -1,18 +1,15 @@
 import React from 'react'
-import FormCookingRecipes from '../components/FormCookingRecipes'
+import ListCookingRecipes from '../components/ListCookingRecipes'
 import NavTodoListRecipes from '../components/NavTodoListRecipes'
 
-import '../Styles/StyleTodoList.css'
-
-
-function RecipesTodoList() {
+function ListRecipesPage() {
   return (
     <div>
-       <nav>
+        <nav>
         <NavTodoListRecipes/>
         </nav>
         <main>
-        <FormCookingRecipes/>
+        <ListCookingRecipes/>
         </main>
         <footer>
 
@@ -21,4 +18,4 @@ function RecipesTodoList() {
   )
 }
 
-export default RecipesTodoList
+export default ListRecipesPage

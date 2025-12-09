@@ -1,11 +1,13 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from '../pages/Register';
 import SignIn from '../pages/SignIn';
-import RecipesTodoList from '../pages/RecipesTodoList';
+import FormRecipesPage from '../pages/FormRecipesPage';
 import HomeRecipes from '../pages/HomeRecipes';
+import ListRecipesPage from '../pages/ListRecipesPage';
 
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 
 function Routing() {
@@ -15,10 +17,11 @@ function Routing() {
     <div>
       <Router>
         <Routes>
-            <Route path='/signin' element={<SignIn/>}/>
+            <Route path='/signIn' element={<SignIn/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/" element={<HomeRecipes/>}/>
-            <Route path="/recipesTodoList" element={<RecipesTodoList/>}/>
+            <Route path="/formRecipesPage" element={<FormRecipesPage/>}/>
+            <Route path="/listRecipesPage" element={<ListRecipesPage/>}/>
 
         </Routes>
       </Router>

@@ -4,47 +4,41 @@ import { getUsers } from '../Services/llamados';
 
 
 function FormSignIn() {
-   const [Username, SetUserName]=useState()
-   const [Password, SetPassword]=useState()
-   const[usuarios, SetUsuarios]=useState()
+   const [Username, setUsername]=useState()
+   const [Password, setPassword]=useState()
+   const[users, setUsers]=useState()
 
    const navigate = useNavigate()
 
    useEffect(() => {
-
     async function fetchDataUsers() {
-      const datos = await getUsers()
-      SetUsuarios(datos)
+      const data = await getUsers()
+      setUsers(data)
     };
     fetchDataUsers();
    },[]);
 
 
-  function nombre(evento) {
-    SetUserName (evento.target.value)
+  function userName(evento) {
+    setUsername (evento.target.value)
   }
 
 
   function password(evento) {
-    SetPassword (evento.target.value)
+    setPassword (evento.target.value)
   }
 
 
-  function inicia() {
-    
-const encontrado = usuarios.filter(usuario => usuario.nombre===Username && usuario.password===Password)
-
-if (encontrado.length === 0) {
-  console.log ("Usuario o Contraseña   incorrecto")
-} else {
-  navigate('/recipesTodoList')
-}
-
-    
-
-
-    
-    
+  function enter() {
+    const user = users.find(user => user.username===Username && user.password===Password)
+    if (user) {
+      localStorage.setItem("username", user.username)
+      localStorage.setItem("email", user.email)
+      localStorage.setItem("typeUser", user.typeUser)
+      navigate('/')
+    }else {
+        console.log ("Invalid Credentials")
+     }
 
   }
 
@@ -55,7 +49,7 @@ if (encontrado.length === 0) {
 
         <div>
         <label htmlFor="">Username:</label><br />
-        <input value={Username} onChange={nombre} type="text" />
+        <input value={Username} onChange={userName} type="text" />
         </div>
 
         <div>
@@ -63,9 +57,9 @@ if (encontrado.length === 0) {
         <input value={Password} onChange={password} type="password" name="" />
         </div>
 
-        <input  onClick={inicia} type="button" value="Iniciar" />
+        <input  onClick={enter} type="button" value="enter" />
 
-        <p>¿No tienes una Cuenta? <br /> <Link to="/register">Crea una en Log In</Link> </p>
+        <p>Don't you have an account? <br /> <Link to="/register">Register</Link> </p>
     
     </div>
   )

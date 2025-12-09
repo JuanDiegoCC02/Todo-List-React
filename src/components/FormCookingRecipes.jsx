@@ -65,8 +65,8 @@
         function editFunctIngredients(evento){
             setEditIngredients(evento.target.value)
         }
-        function editCookingProcessFunct(params) {
-            
+        function editCookingProcessFunct(e) {
+            setEditCookingProcess(e.target.value)
         }
         function editFunctStatus(evento){
             setEditStatusRecipe(evento.target.value)
@@ -130,59 +130,10 @@
             <input value={statusRecipe} onChange={statusFunctRecipe} type="text" />
         </div>
 
-        <input onClick={post} type="button" value="Post" />
-        <div><br />
-        </div>
-        <h3>Count Recipes Check</h3>
-        <h4>{count}</h4>
-
-        <br /> <hr  className='Line'/>
-
-    <ul className='ListaBooks'>    
-        <h1>New Recipes</h1>
-        {recipes.map ((recipe,index) => (
-        <li className='ContainerNewBook' key={index}>
-        <strong>Recipe Name:</strong> <br /> {recipe.nameRecipe} <br />
-
-        <strong>Recipe Ingredients:</strong> <br /> {recipe.ingredientsRecipe} <br />
-
-        <strong>Recipe Cooking Process:</strong> <br /> {recipe.cookingProcess} <br />
-
-        <strong>Recipe Status:</strong> <br /> {recipe.statusRecipe} <br />
-        
-
-<div>
-        <label htmlFor="">Recipe Check</label>
-        <input className='btnCheckbox'
-         type="checkbox" 
-         name="recipeCheck" 
-         id="recipeCheck" 
-         checked={recipe.completeRecipe}
-         onChange={()=>handleRecipeCheck(recipe.id,index)}
-
-        />
-       
-        
-        <button className='btnDelete' onClick={e=>deleteFunctRecipe(recipe.id)}>Delete</button>
-        <button className='btnEdit' onClick={()=>setShowRecipes(!showRecipes)}>Edit</button>
-        {showRecipes &&
-        <>
-        <input onChange={(e)=> editName} type="text" placeholder='name' />
-        <input onChange={(e)=> editIngredients} type="text" placeholder='ingredients'/>
-        <input onChange={(e)=> editCookingProcess} type="text" placeholder='cookingProcess'/>
-        <input  onChange={(e)=> editStatusRecipe} type="text" placeholder='status'/>
-        <button onClick={()=>editFunctRecipe(recipe.id)}>Complete Edit</button>
-        </>
-        }
-</div>
-        </li> 
-    ))}
-    </ul>
-
-    </div>
-
+        <input onClick={post} type="button" value="Post" /><br /><br />
         </div>
 
+     </div>
     )
     }
 
