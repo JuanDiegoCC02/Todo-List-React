@@ -29,7 +29,7 @@
       "ingredientsRecipe": "test ingredients",
       "cookingProcess": "test process",
       "statusRecipe": "test ",
-      "completeRecipe": false
+      "completeRecipe": true
     }
   ]
 }

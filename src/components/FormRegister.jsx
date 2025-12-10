@@ -51,7 +51,7 @@ function FormRegister() {
 
 <input type="button" value="register" onClick={register} />
 
-<p>Do you already have an account? <br /><Link to="/signIn">Sign In</Link></p>
+<p>Do you already have an account? <br /><Link to="/signin">Sign In</Link></p>
 
     </div>
   )

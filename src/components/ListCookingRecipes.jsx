@@ -4,29 +4,23 @@ import { deleteRecipes, getRecipes, updateRecipes } from '../Services/llamadosRe
 function ListCookingRecipes() {
            
     const [recipes, setRecipes] = useState([])
-    const [showRecipes,setShowRecipes] = useState(false)
     
     const [editName,setEditName] = useState("")
     const [editIngredients,setEditIngredients] = useState("")
     const [editCookingProcess, setEditCookingProcess] = ("")
-    
     const [editStatusRecipe,setEditStatusRecipe] = useState("")
 
     const [reload,setReload] = useState(false)
-    const [count, setCount] = useState(0)
+    const [showRecipes,setShowRecipes] = useState(false)
 
-    const handleRecipeCheck = async(id, index) => {
-        const updatedRecipes = [...recipes]
-        updatedRecipes[index].completeRecipe = !updatedRecipes[index].completeRecipe
+    // recipe status handle function
+    const handleRecipeCheck = async (id, index) => {
+        const updateCookingRecipes =  [...recipes]
+        updateCookingRecipes[index].completeRecipe = !updateCookingRecipes[index].completeRecipe
         await updateRecipes(
-            {"completeRecipe": updatedRecipes[index].completeRecipe}, id)
-        setRecipes(updatedRecipes);
-
-        if (updatedRecipes[index].completeRecipe) {
-            setCount(count + 1);
-        } else {
-            setCount(count - 1);
-        }
+            {"completeRecipe": updateCookingRecipes[index].completeRecipe}, id
+        )
+        setRecipes(updateCookingRecipes)
     }
     
     
@@ -67,6 +61,7 @@ function ListCookingRecipes() {
         }
         list()
         }, [reload] )
+        const completedCount = recipes.filter(recipe => recipe.completeRecipe).length;
   return (
     <div>
         <ul className='ListaBooks'>    
@@ -112,7 +107,7 @@ function ListCookingRecipes() {
 
     <div>
         <h3>Count Recipes Check</h3>
-        <h4>{count}</h4>
+        <h4>{completedCount}</h4>
         </div>
 
     </div>

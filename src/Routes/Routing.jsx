@@ -17,7 +17,7 @@ function Routing() {
     <div>
       <Router>
         <Routes>
-            <Route path='/signIn' element={<SignIn/>}/>
+            <Route path='/signin' element={<SignIn/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/" element={<HomeRecipes/>}/>
             <Route path="/formRecipesPage" element={<FormRecipesPage/>}/>
