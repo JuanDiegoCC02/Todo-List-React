@@ -24,12 +24,19 @@
   ],
   "recipes": [
     {
-      "id": "010f",
-      "nameRecipe": "Recipe test",
-      "ingredientsRecipe": "test ingredients",
-      "cookingProcess": "test process",
-      "statusRecipe": "test ",
-      "completeRecipe": true
+      "id": "4046",
+      "nameRecipe": "TEST",
+      "ingredientsRecipe": "TEST",
+      "descriptionRecipe": "TEST",
+      "completeRecipe": false,
+      "Steps": [
+        {
+          "stepId": 1765467850118,
+          "text": "t",
+          "priority": "Media",
+          "isCompleted": false
+        }
+      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
-    import React, { useEffect, useState } from 'react'
+    import React, { useState } from 'react'
     import { deleteRecipes, getRecipes, postRecipes, updateRecipes } from '../Services/llamadosRecipes'
     
     import '../Styles/FormRecipes.css'
@@ -9,20 +9,14 @@
         
         const [nameRecipe, setNameRecipe]=useState()
         const [ingredientsRecipe, setIngredientsRecipe]=useState()
-        const [cookingProcess, setCookingProcess] =useState()
+        const [descriptionRecipe, setDescriptionRecipe] =useState()
         const [recipes, setRecipes] = useState([])
 
         
-        
         const [reload,setReload] = useState(false)
         
-
-
-        const [statusRecipe, setStatusRecipe]=useState()
-
        
 
-        
 
         function nameFunctRecipe(evento) {
             setNameRecipe(evento.target.value)
@@ -32,18 +26,15 @@
             setIngredientsRecipe(evento.target.value)
         }
 
-        function cookingProcessFunct(e) {
-            setCookingProcess(e.target.value)
-        }
 
-        function statusFunctRecipe(evento) {
-            setStatusRecipe(evento.target.value)
+        function descriptionFunctRecipe(evento) {
+            setDescriptionRecipe(evento.target.value)
         }
 
 
 
         function post() {          
-            postRecipes( nameRecipe, ingredientsRecipe, cookingProcess, statusRecipe,false)
+            postRecipes( nameRecipe, ingredientsRecipe, descriptionRecipe, false)
             setReload(!reload)
         }
 
@@ -69,14 +60,13 @@
         </div>
         
         <div className='containerUniqueFormRecipes'>
-            <label className='labelFormRecipe' htmlFor="">Cooking Process of Recipe</label><br />
-            <input className='inputFormRecipes'  value={cookingProcess} onChange={cookingProcessFunct} type="text" />
+            <label className='labelFormRecipe' htmlFor="">Description of Recipe</label><br />
+            <input className='inputFormRecipes'  value={descriptionRecipe} onChange={descriptionFunctRecipe} type="text" />
         </div>
 
-        <div className='containerUniqueFormRecipes'>
-            <label className='labelFormRecipe' htmlFor="">Status of Recipe</label><br />
-            <input className='inputFormRecipes'  value={statusRecipe} onChange={statusFunctRecipe} type="text" />
-        </div>
+        
+
+       
 
         <input className='btnPost' onClick={post} type="button" value="Post" /><br /><br />
         </div>

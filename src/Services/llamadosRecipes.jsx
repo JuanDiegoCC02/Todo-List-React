@@ -22,14 +22,13 @@ export {getRecipes}
 
 //////////LLAMADO POST//////////
 
-async function postRecipes(nameRecipe,ingredientsRecipe, cookingProcess,statusRecipe,completeRecipe) {
+async function postRecipes(nameRecipe,ingredientsRecipe, descriptionRecipe, completeRecipe) {
     try {
      
         const userData = { 
             nameRecipe,
             ingredientsRecipe,
-            cookingProcess,
-            statusRecipe,
+            descriptionRecipe,
             completeRecipe
         
         };

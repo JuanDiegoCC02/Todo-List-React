@@ -4,14 +4,71 @@ import { deleteRecipes, getRecipes, updateRecipes } from '../Services/llamadosRe
 function ListCookingRecipes() {
            
     const [recipes, setRecipes] = useState([])
+
+    const [newStepText, setNewStepText] = useState("")
+    const [newStepPriority, setNewStepPriority] = useState("Media")
+    const [currentRecipeID, setCurrentRecipeID] = useState(null)
     
     const [editName,setEditName] = useState("")
     const [editIngredients,setEditIngredients] = useState("")
-    const [editCookingProcess, setEditCookingProcess] = ("")
-    const [editStatusRecipe,setEditStatusRecipe] = useState("")
-
+    const [editDescription, setEditDescription] = useState("")
+   
     const [reload,setReload] = useState(false)
     const [showRecipes,setShowRecipes] = useState(false)
+    const [showAddCookingProcess, setShowAddCookingProcess] = useState(false)
+
+    
+    const handleAddStep = async (recipeId) => {
+    // 1. Validar que haya texto
+    if (!newStepText.trim()) {
+        alert("El paso no puede estar vacío.");
+        return;
+    }
+
+    // 2. Crear el nuevo objeto Step
+    const newStep = {
+        stepId: Date.now(), 
+        text: newStepText,
+        priority: newStepPriority,
+        isCompleted: false
+    };
+
+    // 3. Encontrar la receta en el estado local
+    const recipeIndex = recipes.findIndex(r => r.id === recipeId);
+    if (recipeIndex === -1) return;
+    
+   
+    const currentSteps = recipes[recipeIndex].Steps || []; 
+    const updatedSteps = [...currentSteps, newStep];
+    
+    // 4. Persistir SOLO el array de Pasos en la DB/API
+    // Asume que 'updateRecipes' acepta un objeto parcial y el ID.
+    await updateRecipes({ Steps: updatedSteps }, recipeId);
+
+    // 5. Actualizar el estado local de 'recipes'
+    const updatedRecipes = [...recipes];
+    updatedRecipes[recipeIndex].Steps = updatedSteps;
+    setRecipes(updatedRecipes);
+
+   
+    setNewStepText("");
+    setNewStepPriority("Media");
+    setShowAddCookingProcess(false);
+    setCurrentRecipeID(null);
+    };
+
+    const handleToggleAddStep = (recipeId) => {
+    // Si ya está abierto para esta receta, ciérralo.
+    if (currentRecipeID === recipeId) {
+        setShowAddCookingProcess(false);
+        setCurrentRecipeID(null);
+    } else {
+        // Ábrelo para la nueva receta.
+        setShowAddCookingProcess(true);
+        setCurrentRecipeID(recipeId);
+    }
+};
+
 
     // recipe status handle function
     const handleRecipeCheck = async (id, index) => {
@@ -23,19 +80,7 @@ function ListCookingRecipes() {
         setRecipes(updateCookingRecipes)
     }
     
-    
-        function editFunctName(evento){
-            setEditName(evento.target.value)
-        }
-        function editFunctIngredients(evento){
-            setEditIngredients(evento.target.value)
-        }
-        function editCookingProcessFunct(e) {
-            setEditCookingProcess(e.target.value)
-        }
-        function editFunctStatus(evento){
-            setEditStatusRecipe(evento.target.value)
-        }
+      
 
     // function delete
             function deleteFunctRecipe (id) {
@@ -45,12 +90,13 @@ function ListCookingRecipes() {
     // function edit
         function editFunctRecipe(id) {
             const editRecipe = {
-                "nameRecipe":editFunctName,
-                "ingredientsRecipe":editFunctIngredients,
-                "cookingProcess" : editCookingProcessFunct,
-                "statusRecipe":editFunctStatus
+                "nameRecipe":editName,
+                "ingredientsRecipe":editIngredients,
+                "descriptionRecipe" : editDescription,
+                
             }   
             updateRecipes(editRecipe, id)
+            setShowRecipes(false)
             setReload(!reload);
         }
     
@@ -72,11 +118,74 @@ function ListCookingRecipes() {
 
         <strong>Recipe Ingredients:</strong> <br /> {recipe.ingredientsRecipe} <br />
 
-        <strong>Recipe Cooking Process:</strong> <br /> {recipe.cookingProcess} <br />
+        <strong>Recipe Description:</strong> <br /> {recipe.descriptionRecipe} <br />
 
-        <strong>Recipe Status:</strong> <br /> {recipe.statusRecipe} <br />
+     
+{/* access from card steps CookingRecipes */}
+<div>
+    <button 
+        className='btnShowAddCookingProcess' 
+        onClick={() => handleToggleAddStep(recipe.id)} 
+    >
+        {currentRecipeID === recipe.id && showAddCookingProcess ? 'Cerrar Formulario' : 'Add steps'}
+    </button>
+    
+    {/* show Create steps cooking recipe*/}
+    {showAddCookingProcess && currentRecipeID === recipe.id && (
+        <div className='form-add-step'>
+            <hr/>
+            <h4>New step</h4>
+            
+            {/*  step text input */}
+            <label htmlFor={`step-text-${recipe.id}`}>Cooking Step</label>
+            <input 
+                type="text" 
+                id={`step-text-${recipe.id}`}
+                value={newStepText}
+                onChange={(e) => setNewStepText(e.target.value)}
+                placeholder="Ej: Lavar y cortar las verduras"
+            />
+            
+            {/* select from priority */}
+            <label htmlFor={`step-priority-${recipe.id}`}>Priority</label>
+            <select
+                id={`step-priority-${recipe.id}`}
+                value={newStepPriority}
+                onChange={(e) => setNewStepPriority(e.target.value)}
+            >
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+
+            {/* btn save step */}
+            <button 
+                onClick={() => handleAddStep(recipe.id)}
+            >
+                Save Step
+            </button>
+            <hr/>
+        </div>
+    )}
+    {/* show getting steps*/}
+    {recipe.Steps && recipe.Steps.length > 0 && (
+    <>
+        <h4>Pasos de la Receta:</h4>
+        <ul>
+            {recipe.Steps.map((step, stepIndex) => (
+                <li key={stepIndex}>
+                    [**{step.priority}**] {step.text} 
+                    
+                </li>
+            ))}
+        </ul>
+    </>
+    )}
+</div>
+
+
         
-
+    {/*Card settings Recipe*/}
     <div>
         <label htmlFor="">Recipe Check</label>
         <input className='btnCheckbox'
@@ -93,10 +202,10 @@ function ListCookingRecipes() {
         <button className='btnEdit' onClick={()=>setShowRecipes(!showRecipes)}>Edit</button>
         {showRecipes &&
         <>
-        <input onChange={(e)=> editName} type="text" placeholder='name' />
-        <input onChange={(e)=> editIngredients} type="text" placeholder='ingredients'/>
-        <input onChange={(e)=> editCookingProcess} type="text" placeholder='cookingProcess'/>
-        <input  onChange={(e)=> editStatusRecipe} type="text" placeholder='status'/>
+        <input onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
+        <input onChange={(e)=> setEditIngredients(e.target.value)} value={editIngredients} type="text" placeholder='ingredients'/>
+        <input onChange={(e)=> setEditDescription(e.target.value)} value={editDescription} type="text" placeholder='description'/>
+       
         <button onClick={()=>editFunctRecipe(recipe.id)}>Complete Edit</button>
         </>
         }
