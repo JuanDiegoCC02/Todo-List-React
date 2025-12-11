@@ -1,0 +1,117 @@
+/* ======================================================= */
+/* 1. ESTRUCTURA GENERAL Y ALINEACIÓN */
+/* ======================================================= */
+
+/* Contenedor Principal (navAllContainer) */
+.navAllContainer {
+    width: 100%;
+    background-color: #ffffff; /* Fondo blanco y limpio */
+    /* Sombra muy sutil para darle ligera elevación */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
+    font-family: 'Verdana', sans-serif;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Lista de Navegación (navUl) */
+.navUl {
+    list-style: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center; 
+    gap: 2rem; /* Más espacio entre los elementos para mayor aire */
+}
+
+/* ======================================================= */
+/* 2. ESTILO DE ENLACES Y TEXTO */
+/* ======================================================= */
+
+/* Ítems de la Lista (navLi y el <li> que contiene el botón) */
+.navLi, .navUl > li {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0; /* Solo padding vertical */
+    transition: all 0.2s ease;
+}
+
+/* Estilo del enlace (Link) */
+.navLi a {
+    text-decoration: none;
+    color: #34495e; /* Gris oscuro para el texto */
+    padding-bottom: 5px; /* Espacio para el efecto hover */
+    /* Transición de color solo para el enlace */
+    transition: color 0.2s ease; 
+}
+
+/* Efecto Hover: Línea sutil bajo el enlace (Detallista) */
+.navLi a:hover {
+    color: #3498db; /* Azul de acento */
+    /* Crea un borde inferior al pasar el ratón */
+    border-bottom: 2px solid #3498db; 
+}
+
+/* Remueve el padding adicional en el li para este diseño */
+.navLi:hover {
+    background-color: transparent; 
+    border-radius: 0;
+}
+
+/* ======================================================= */
+/* 3. BOTÓN CERRAR SESIÓN */
+/* ======================================================= */
+
+.btnCloseSession {
+    /* Estilo como botón prominente */
+    border: 1px solid #3498db; /* Borde azul de acento */
+    background-color: #3498db; 
+    color: #ffffff;
+    
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btnCloseSession:hover {
+    background-color: #2980b9; /* Azul más oscuro */
+    border-color: #2980b9;
+}
+
+/* ======================================================= */
+/* 4. RESPONSIVIDAD (Móvil) */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+    .navUl {
+        /* Secciones apiladas */
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 0; 
+        padding: 1rem;
+    }
+    
+    .navLi {
+        width: 100%; 
+        padding: 0.4rem 0; 
+    }
+
+    .navLi a {
+        display: block; 
+        padding: 0.5rem 1rem;
+        /* Remueve el borde inferior en móvil para un diseño más limpio */
+        border-bottom: none !important; 
+    }
+    
+    .btnCloseSession {
+        width: 100%; 
+        text-align: center; 
+        margin-top: 1rem; /* Más espacio para separar de los links */
+        padding: 0.75rem;
+    }
+}
