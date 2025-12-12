@@ -1,0 +1,323 @@
+/*=====================================
+  1. BASE Y CONTENEDOR GENERAL
+=====================================*/
+
+body {
+    background-color: #f8f9fa; /* Fondo muy claro, cohesivo con ContainerAllForm */
+    font-family: 'Arial', sans-serif;
+    color: #34495e; /* Texto oscuro/gris azulado */
+    margin: 0;
+}
+
+.allListRecipeContainer {
+    padding: 30px;
+    background-color: #f8f9fa; 
+    min-height: 100vh;
+}
+
+.titleNewRecipes {
+    color: #2c3e50; 
+    text-align: center;
+    grid-column: 1 / -1; 
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.UlListRecipes {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px; /* Limita el ancho de la cuadrícula */
+    /* Estructura de cuadrícula responsiva */
+    display: grid;
+    gap: 30px; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+}
+
+/*=====================================
+  2. ESTILO DE TARJETA DE RECETA
+=====================================*/
+
+.LiListRecipes {
+    background: #ffffff; /* Fondo de tarjeta blanco */
+    border: 1px solid #dcdde1; 
+    border-top: 5px solid #3498db; /* Borde superior de acento azul */
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: auto;
+}
+
+.LiListRecipes:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.infoListRecipe {
+    color: #34495e; /* Color similar al label del form */
+    display: block;
+    margin-top: 15px;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.LiListRecipes > br + * {
+    color: #2c3e50; 
+    display: block;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/*=====================================
+  3. ESTILOS DE BOTONES
+=====================================*/
+
+/* Base para todos los botones */
+.LiListRecipes button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: background-color 0.3s, transform 0.1s;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Botones de acción (Alineados con la paleta) */
+.btnDelete {
+    background-color: #e74c3c; /* Rojo de paleta plana */
+    color: #ffffff;
+}
+.btnDelete:hover {
+    background-color: #c0392b;
+}
+
+.btnEdit {
+    background-color: #3498db; /* Azul de acento principal */
+    color: #ffffff;
+}
+.btnEdit:hover {
+    background-color: #2980b9;
+}
+
+.btnSaveEdit,
+.btnSaveStep {
+    background-color: #2ecc71; /* Verde de éxito */
+    color: #ffffff;
+    margin-top: 15px;
+    margin-right: 0;
+    width: 100%; 
+}
+.btnSaveEdit:hover,
+.btnSaveStep:hover {
+    background-color: #27ae60;
+}
+
+.btnShowAddCookingProcess {
+    background-color: #95a5a6; /* Gris neutro para una acción secundaria */
+    color: #ffffff;
+    width: 100%;
+    margin-right: 0;
+}
+.btnShowAddCookingProcess:hover {
+    background-color: #7f8c8d;
+}
+
+/*=====================================
+  4. ESTILOS DE PASOS (STEPS)
+=====================================*/
+
+.allCardSteps {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px dashed #dcdde1;
+}
+
+.containerFormAddStep {
+    background: #f1f3f4; /* Fondo muy claro para el formulario de pasos */
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+    border: 1px solid #dcdde1;
+}
+
+.hrCardAddStep {
+    border-color: #dcdde1;
+    margin: 15px 0;
+}
+
+.titleNewStep {
+    color: #34495e;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.LbFormStep {
+    display: block;
+    color: #34495e;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+/* Estilo para inputs y selects (Input Form Step) */
+.InpFormStep,
+.containerFormAddStep select {
+    width: 100%;
+    padding: 0.75rem; /* Cohesivo con el padding del form */
+    margin-bottom: 10px;
+    border: 2px solid #aeb6bf; 
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #000000;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.InpFormStep:focus,
+.containerFormAddStep select:focus {
+    border-color: #3498db; 
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); 
+    outline: none;
+}
+
+.containerFormAddStep select {
+    appearance: none;
+    /* Indicador de flecha, usando un SVG incrustado en gris oscuro */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%2334495e" d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 0.8em;
+}
+
+.optFormStep {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Visualización de pasos existentes */
+.titleStepsCookingRecipe {
+    color: #3498db; /* Acento azul */
+    margin-top: 20px;
+    border-bottom: 1px solid #dcdde1;
+    padding-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.UlListSteps {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.LiStepsCookingRecipe {
+    background-color: #ecf0f1; /* Gris muy claro para diferenciar el paso */
+    padding: 10px;
+    border-left: 3px solid #3498db;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    font-size: 0.95rem;
+}
+
+.LiStepsCookingRecipe:hover {
+    background-color: #dde1e2;
+}
+
+/*=====================================
+  5. CHECKBOX Y CONTADOR
+=====================================*/
+
+/* Contenedor de configuración (Check, Delete, Edit) */
+.LiListRecipes > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #dcdde1;
+    margin-top: 15px;
+}
+
+.LbRecipeCheck {
+    color: #34495e;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.btnCheckbox {
+    width: 20px;
+    height: 20px;
+    transform: translateY(2px);
+    accent-color: #2ecc71; /* Verde de éxito */
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* Contenedor de conteo de recetas completadas */
+.containerCountRecipes {
+    text-align: center;
+    margin: 40px auto 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    color: #34495e;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.titleCountRecipes {
+    color: #3498db;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.countRecipesCheck {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2ecc71; /* Acento en verde para el éxito */
+}
+
+/*=====================================
+  6. RESPONSIVIDAD
+=====================================*/
+
+@media (max-width: 768px) {
+    .allListRecipeContainer {
+        padding: 15px;
+    }
+    .titleNewRecipes {
+        font-size: 1.8rem;
+    }
+    .LiListRecipes {
+        padding: 15px;
+    }
+    
+    /* En pantallas pequeñas, los botones se apilan */
+    .LiListRecipes > div:last-child {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .btnDelete, .btnEdit {
+        width: 48%; /* Ocupan la mitad del espacio */
+        margin-right: 0;
+        margin-top: 10px;
+    }
+    
+    .btnCheckbox {
+        margin-right: 10px;
+    }
+
+    .LbRecipeCheck {
+        order: -1; /* Mueve la etiqueta y el checkbox al inicio */
+        width: auto;
+    }
+}

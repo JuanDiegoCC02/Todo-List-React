@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { deleteRecipes, getRecipes, updateRecipes } from '../Services/llamadosRecipes'
+import "../Styles/ListCookingRecipes.css"
 
 function ListCookingRecipes() {
            
@@ -19,13 +20,12 @@ function ListCookingRecipes() {
 
     
     const handleAddStep = async (recipeId) => {
-    // 1. Validar que haya texto
     if (!newStepText.trim()) {
-        alert("El paso no puede estar vacío.");
+        alert("Complete the text for step.");
         return;
     }
 
-    // 2. Crear el nuevo objeto Step
+    // 1- create new step
     const newStep = {
         stepId: Date.now(), 
         text: newStepText,
@@ -33,24 +33,18 @@ function ListCookingRecipes() {
         isCompleted: false
     };
 
-    // 3. Encontrar la receta en el estado local
+    // 2- request recipe update
     const recipeIndex = recipes.findIndex(r => r.id === recipeId);
     if (recipeIndex === -1) return;
-    
-   
+
     const currentSteps = recipes[recipeIndex].Steps || []; 
     const updatedSteps = [...currentSteps, newStep];
-    
-    // 4. Persistir SOLO el array de Pasos en la DB/API
-    // Asume que 'updateRecipes' acepta un objeto parcial y el ID.
     await updateRecipes({ Steps: updatedSteps }, recipeId);
-
-    // 5. Actualizar el estado local de 'recipes'
+    
     const updatedRecipes = [...recipes];
     updatedRecipes[recipeIndex].Steps = updatedSteps;
     setRecipes(updatedRecipes);
 
-   
     setNewStepText("");
     setNewStepPriority("Media");
     setShowAddCookingProcess(false);
@@ -58,12 +52,10 @@ function ListCookingRecipes() {
     };
 
     const handleToggleAddStep = (recipeId) => {
-    // Si ya está abierto para esta receta, ciérralo.
     if (currentRecipeID === recipeId) {
         setShowAddCookingProcess(false);
         setCurrentRecipeID(null);
     } else {
-        // Ábrelo para la nueva receta.
         setShowAddCookingProcess(true);
         setCurrentRecipeID(recipeId);
     }
@@ -109,72 +101,81 @@ function ListCookingRecipes() {
         }, [reload] )
         const completedCount = recipes.filter(recipe => recipe.completeRecipe).length;
   return (
-    <div>
-        <ul className='ListaBooks'>    
-        <h1>New Recipes</h1>
+    <div className='allListRecipeContainer'>
+
+    <div className='containerCountRecipes'>
+        <h3 className='titleCountRecipes'>Count Recipes Check</h3>
+        <h4 className='countRecipesCheck'>{completedCount}</h4>
+    </div>
+
+
+        <ul className='UlListRecipes'>    
+        <h1 className='titleNewRecipes'>New Recipes</h1>
         {recipes.map ((recipe,index) => (
-        <li className='ContainerNewBook' key={index}>
-        <strong>Recipe Name:</strong> <br /> {recipe.nameRecipe} <br />
+        <li className='LiListRecipes' key={index}>
+        <strong className='infoListRecipe'>Recipe Name:</strong> <br /> {recipe.nameRecipe} <br />
 
-        <strong>Recipe Ingredients:</strong> <br /> {recipe.ingredientsRecipe} <br />
+        <strong className='infoListRecipe'>Recipe Ingredients:</strong> <br /> {recipe.ingredientsRecipe} <br />
 
-        <strong>Recipe Description:</strong> <br /> {recipe.descriptionRecipe} <br />
+        <strong className='infoListRecipe'>Recipe Description:</strong> <br /> {recipe.descriptionRecipe} <br />
 
      
 {/* access from card steps CookingRecipes */}
-<div>
+<div className='allCardSteps'>
     <button 
         className='btnShowAddCookingProcess' 
         onClick={() => handleToggleAddStep(recipe.id)} 
     >
-        {currentRecipeID === recipe.id && showAddCookingProcess ? 'Cerrar Formulario' : 'Add steps'}
+        {currentRecipeID === recipe.id && showAddCookingProcess ? 'Close' : 'Add steps'}
     </button>
     
     {/* show Create steps cooking recipe*/}
     {showAddCookingProcess && currentRecipeID === recipe.id && (
-        <div className='form-add-step'>
-            <hr/>
-            <h4>New step</h4>
+        <div className='containerFormAddStep'>
+            <hr className='hrCardAddStep'/>
+
+            <h4 className='titleNewStep'>New step</h4>
             
             {/*  step text input */}
-            <label htmlFor={`step-text-${recipe.id}`}>Cooking Step</label>
+            <label className='LbFormStep' htmlFor={`step-text-${recipe.id}`}>Step Cooking Recipe  </label>
             <input 
                 type="text" 
+                className='InpFormStep'
                 id={`step-text-${recipe.id}`}
                 value={newStepText}
                 onChange={(e) => setNewStepText(e.target.value)}
                 placeholder="Ej: Lavar y cortar las verduras"
-            />
+            /> 
             
             {/* select from priority */}
-            <label htmlFor={`step-priority-${recipe.id}`}>Priority</label>
+            <label className='LbFormStep' htmlFor={`step-priority-${recipe.id}`}>Priority</label>
             <select
                 id={`step-priority-${recipe.id}`}
                 value={newStepPriority}
                 onChange={(e) => setNewStepPriority(e.target.value)}
             >
-                <option value="Alta">Alta</option>
-                <option value="Media">Media</option>
-                <option value="Baja">Baja</option>
+                <option className='optFormStep' value="High">High</option>
+                <option className='optFormStep' value="Medium">Medium</option>
+                <option className='optFormStep' value="Low">Low</option>
             </select>
 
             {/* btn save step */}
-            <button 
+            <button className='btnSaveStep'
                 onClick={() => handleAddStep(recipe.id)}
             >
                 Save Step
             </button>
-            <hr/>
+            <hr className='hrCardAddStep'/>
         </div>
     )}
     {/* show getting steps*/}
     {recipe.Steps && recipe.Steps.length > 0 && (
     <>
-        <h4>Pasos de la Receta:</h4>
-        <ul>
+        <h4 className='titleStepsCookingRecipe'>Steps Cooking Recipe:</h4>
+        <ul className='UlListSteps'>
             {recipe.Steps.map((step, stepIndex) => (
-                <li key={stepIndex}>
-                    [**{step.priority}**] {step.text} 
+                <li className='LiStepsCookingRecipe' key={stepIndex}>
+                     {step.text} [{step.priority}]
                     
                 </li>
             ))}
@@ -187,7 +188,7 @@ function ListCookingRecipes() {
         
     {/*Card settings Recipe*/}
     <div>
-        <label htmlFor="">Recipe Check</label>
+        <label className='LbRecipeCheck' htmlFor="">Recipe Check</label>
         <input className='btnCheckbox'
          type="checkbox" 
          name="recipeCheck" 
@@ -202,11 +203,11 @@ function ListCookingRecipes() {
         <button className='btnEdit' onClick={()=>setShowRecipes(!showRecipes)}>Edit</button>
         {showRecipes &&
         <>
-        <input onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
-        <input onChange={(e)=> setEditIngredients(e.target.value)} value={editIngredients} type="text" placeholder='ingredients'/>
-        <input onChange={(e)=> setEditDescription(e.target.value)} value={editDescription} type="text" placeholder='description'/>
+        <input className='InpFormStep' onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
+        <input className='InpFormStep' onChange={(e)=> setEditIngredients(e.target.value)} value={editIngredients} type="text" placeholder='ingredients'/>
+        <input className='InpFormStep' onChange={(e)=> setEditDescription(e.target.value)} value={editDescription} type="text" placeholder='description'/>
        
-        <button onClick={()=>editFunctRecipe(recipe.id)}>Complete Edit</button>
+        <button className='btnSaveEdit' onClick={()=>editFunctRecipe(recipe.id)}>Complete Edit</button>
         </>
         }
     </div>
@@ -214,11 +215,7 @@ function ListCookingRecipes() {
     ))}
     </ul>
 
-    <div>
-        <h3>Count Recipes Check</h3>
-        <h4>{completedCount}</h4>
-        </div>
-
+   
     </div>
   )
 }

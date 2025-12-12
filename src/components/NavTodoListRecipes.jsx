@@ -26,7 +26,8 @@ function NavTodoListRecipes() {
             <li className='navLi'><Link to="/formRecipesPage"> Form Cooking Recipes </Link></li>
             <li className='navLi'><Link to="/listRecipesPage"> List Cooking Recipes </Link></li>
 
-            <li><button className='btnCloseSession' onClick={closeUser}>Close Session</button></li>
+            <li className='navLi'><button className='btnCloseSession' 
+                onClick={closeUser}>Close Session</button></li>
           </>
           )
           }
