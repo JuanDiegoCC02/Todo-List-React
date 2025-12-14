@@ -2,7 +2,6 @@ import React from 'react'
 import FormCookingRecipes from '../components/FormCookingRecipes'
 import NavTodoListRecipes from '../components/NavTodoListRecipes'
 
-import '../Styles/StyleTodoList.css'
 
 
 function FormRecipesPage() {

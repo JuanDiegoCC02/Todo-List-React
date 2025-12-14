@@ -1,10 +1,10 @@
 /*=======================================================
   1. CONTENEDOR PRINCIPAL Y CENTRADO
-  (Identico al FormRegister)
 =======================================================*/
 
-.containerAllFormSignIn {
-    background-color: #f8f9fa; /* Fondo claro/gris */
+.containerAllFormRegister {
+    /* Fondo cohesivo con el resto de la aplicación (claro/gris) */
+    background-color: #f8f9fa; 
     font-family: 'Arial', sans-serif;
     min-height: 100vh; 
     
@@ -16,7 +16,7 @@
 }
 
 /* Título Principal */
-.containerAllFormSignIn > h1 {
+.titleTodoListRegister {
     color: #2c3e50; 
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -25,8 +25,8 @@
     line-height: 1.2;
 }
 
-/* Contenedor Flotante del Formulario (Tarjeta de Sign In) */
-.FormSignIn {
+/* Contenedor Flotante del Formulario (Tarjeta de Registro) */
+.formRegisterTodoList {
     background-color: #ffffff;
     padding: 2rem 2.5rem; 
     border-radius: 8px; 
@@ -39,16 +39,16 @@
 }
 
 /*=======================================================
-  2. ESTRUCTURA DE CAMPOS
+  2. ESTRUCTURA DE CAMPOS (NEW CLASS)
 =======================================================*/
 
 /* Contenedor de cada grupo Label/Input */
-.containerLb&InpSignIn {
+.containerLb&InpRegister {
     margin-bottom: 1.5rem; /* Espacio consistente entre campos */
 }
 
 /* Etiquetas (Labels) */
-.LbFormSignIn {
+.LbRegister {
     display: block; 
     font-size: 1rem;
     color: #34495e; 
@@ -57,7 +57,7 @@
 }
 
 /* Campos de Entrada (Inputs) */
-.InpFormSignIn {
+.InpRegister {
     width: 100%;
     padding: 0.75rem;
     
@@ -72,39 +72,58 @@
 }
 
 /* Efecto Detallista de Foco */
-.InpFormSignIn:focus {
+.InpRegister:focus {
     border-color: #3498db; 
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); 
     outline: none; 
 }
 
+/* Checkbox (Ajuste para alineación horizontal) */
+.containerLb&InpRegister:last-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.checkboxRegister {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    accent-color: #3498db; 
+    cursor: pointer;
+}
+
+/* Ajustamos el margen del label para la línea de Terms & Conditions */
+.containerLb&InpRegister:last-of-type .LbRegister {
+    margin-bottom: 0;
+}
+
 /*=======================================================
-  3. BOTÓN Y ENLACE DE REGISTRO
+  3. BOTÓN Y ENLACE DE INICIO DE SESIÓN
 =======================================================*/
 
-.btnEnterSignIn {
+.btnRegister {
     width: 100%;
     padding: 0.9rem;
-    /* Mismo color de botón principal/éxito */
-    background-color: #2ecc71; 
+    background-color: #2ecc71; /* Color de éxito (Guardar/Post) */
     color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1.05rem;
     font-weight: 700;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btnEnterSignIn:hover {
+.btnRegister:hover {
     background-color: #27ae60; 
     transform: translateY(-1px); 
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Enlace a Register */
-.LinkRegister {
+/* Enlace a Sign In */
+.LinkSignIn {
     text-align: center;
     margin-top: 2rem;
     color: #34495e;
@@ -112,33 +131,34 @@
     line-height: 1.4;
 }
 
-.LinkRegister a {
+.LinkSignIn a {
     color: #3498db; 
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
 }
 
-.LinkRegister a:hover {
+.LinkSignIn a:hover {
     color: #2980b9;
     text-decoration: underline;
 }
+
 
 /*=======================================================
   4. RESPONSIVIDAD (Móvil)
 =======================================================*/
 
 @media (max-width: 500px) {
-    .FormSignIn {
+    .formRegisterTodoList {
         padding: 1.5rem;
         max-width: 95%; 
     }
 
-    .containerAllFormSignIn > h1 {
+    .titleTodoListRegister {
         font-size: 1.8rem;
     }
     
-    .btnEnterSignIn {
+    .btnRegister {
         padding: 0.8rem;
     }
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-
+import "../Styles/FormRegister.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { postUsers } from '../Services/llamados';
 
@@ -30,30 +30,35 @@ function FormRegister() {
     
 
   return (
-    <div>
-     <h1>Library <br /> Register</h1>
-        <div>
-          <label htmlFor="">Username:</label><br />
-                <input value={Username} onChange={userName} type="text" />
-        </div>
-        <div>
-          <label htmlFor="">Email:</label><br />
-                <input value={Email} onChange={email} type="email" name="" id="email" />
-        </div>
-        <div>
-          <label htmlFor="">Password:</label><br />
-                <input value={Password} onChange={password} type="password" name="" id="password" />
-        </div>
-        <div>
-          <label htmlFor="">Terms & Conditions</label>
-                <input type="checkbox" name="" id="" />
+    <div className='containerAllFormRegister'>
+     <h1 className='titleTodoListRegister'>Todo-List Cooking Recipes <br /> Register</h1>
+
+        <div className='formRegisterTodoList'>
+          <div className='containerLb&InpRegister'>
+          <label className='LbRegister' htmlFor="">Username:</label><br />
+                <input className='InpRegister' value={Username} onChange={userName} type="text" />
+         </div>
+
+        <div className='containerLb&InpRegister'>
+          <label className='LbRegister' htmlFor="">Email:</label><br />
+                <input className='InpRegister' value={Email} onChange={email} type="email" name="" id="email" />
         </div>
 
-<input type="button" value="register" onClick={register} />
+        <div className='containerLb&InpRegister'>
+          <label className='LbRegister' htmlFor="">Password:</label><br />
+                <input className='InpRegister' value={Password} onChange={password} type="password" name="" id="password" />
+        </div>
 
-<p>Do you already have an account? <br /><Link to="/signin">Sign In</Link></p>
+        <div className='containerLb&InpRegister'>
+          <label className='LbRegister' htmlFor="">Terms & Conditions</label>
+                <input className='checkboxRegister' type="checkbox" name="" id="" />
+        </div>
 
-    </div>
+      <input className='btnRegister' type="button" value="register" onClick={register} />
+
+      <p className='LinkSignIn'>Do you already have an account? <br /><Link to="/signin">Sign In</Link></p>
+  </div>
+ </div>
   )
 }
 

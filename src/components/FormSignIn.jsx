@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "../Styles/FormSignIn.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { getUsers } from '../Services/llamados';
 
@@ -44,24 +45,25 @@ function FormSignIn() {
 
 
   return (
-    <div>
-        <h1>Library <br /> Sign In</h1>
-
-        <div>
-        <label htmlFor="">Username:</label><br />
-        <input value={Username} onChange={userName} type="text" />
+    <div className='containerAllFormSignIn'>
+        <h1>Todo-List Cooking Recipes <br /> Sign In</h1>
+      <div className='FormSignIn'>
+        <div className='containerLb&InpSignIn'>
+        <label className='LbFormSignIn' htmlFor="">Username:</label><br />
+        <input className='InpFormSignIn' value={Username} onChange={userName} type="text" />
         </div>
 
-        <div>
-        <label htmlFor="">Password:</label><br />
-        <input value={Password} onChange={password} type="password" name="" />
+        <div className='containerLb&InpSignIn'>
+        <label className='LbFormSignIn' htmlFor="">Password:</label><br />
+        <input className='InpFormSignIn' value={Password} onChange={password} type="password" name="" />
         </div>
 
-        <input  onClick={enter} type="button" value="enter" />
+        <input className='btnEnterSignIn' onClick={enter} type="button" value="enter" />
 
-        <p>Don't you have an account? <br /> <Link to="/register">Register</Link> </p>
+        <p className='LinkRegister'>Don't you have an account? <br /> <Link to="/register">Register</Link> </p>
     
     </div>
+   </div>
   )
 }
 
