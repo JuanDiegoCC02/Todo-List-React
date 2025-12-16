@@ -35,26 +35,26 @@ function FormRegister() {
 
         <div className='formRegisterTodoList'>
           <div className='containerLb&InpRegister'>
-          <label className='LbRegister' htmlFor="">Username:</label><br />
+          <label className='LbRegister' htmlFor="">Username:</label>
                 <input className='InpRegister' value={Username} onChange={userName} type="text" />
-         </div>
+         </div><br />
 
         <div className='containerLb&InpRegister'>
-          <label className='LbRegister' htmlFor="">Email:</label><br />
+          <label className='LbRegister' htmlFor="">Email:</label>
                 <input className='InpRegister' value={Email} onChange={email} type="email" name="" id="email" />
-        </div>
+        </div><br />
 
         <div className='containerLb&InpRegister'>
-          <label className='LbRegister' htmlFor="">Password:</label><br />
+          <label className='LbRegister' htmlFor="">Password:</label>
                 <input className='InpRegister' value={Password} onChange={password} type="password" name="" id="password" />
-        </div>
+        </div><br />
 
         <div className='containerLb&InpRegister'>
           <label className='LbRegister' htmlFor="">Terms & Conditions</label>
                 <input className='checkboxRegister' type="checkbox" name="" id="" />
         </div>
 
-      <input className='btnRegister' type="button" value="register" onClick={register} />
+      <input className='btnRegister' type="button" value="Register" onClick={register} />
 
       <p className='LinkSignIn'>Do you already have an account? <br /><Link to="/signin">Sign In</Link></p>
   </div>

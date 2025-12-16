@@ -1,74 +1,66 @@
-/* ======================================================= */
-/* 1. ESTRUCTURA GENERAL Y ALINEACIÓN */
-/* ======================================================= */
 
-/* Contenedor Principal (navAllContainer) */
+/* navAllContainer */
 .navAllContainer {
     width: 100%;
-    background-color: #ffffff; /* Fondo blanco y limpio */
-    /* Sombra muy sutil para darle ligera elevación */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); 
-    font-family: 'Verdana', sans-serif;
-    position: sticky;
+    background-color: #2c3a38;
+ 
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
     top: 0;
     z-index: 1000;
 }
 
-/* Lista de Navegación (navUl) */
+/* List of Nav (navUl) */
 .navUl {
     list-style: none;
     padding: 1rem 2rem;
     margin: 0;
-    
+    border: 3px groove black;
     display: flex; 
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center; 
-    gap: 2rem; /* Más espacio entre los elementos para mayor aire */
+    gap: 2rem; 
+     box-shadow: 0 0 10px 4px #3b3b3b, inset 0 0 10px #ebffa4;
 }
 
-/* ======================================================= */
-/* 2. ESTILO DE ENLACES Y TEXTO */
-/* ======================================================= */
+
 
 /* Ítems de la Lista (navLi y el <li> que contiene el botón) */
 .navLi, .navUl > li {
     font-size: 1rem;
     font-weight: 500;
-    padding: 0.5rem 0; /* Solo padding vertical */
+    padding: 0.5rem 0; 
     transition: all 0.2s ease;
 }
 
 /* Estilo del enlace (Link) */
 .navLi a {
     text-decoration: none;
-    color: #34495e; /* Gris oscuro para el texto */
-    padding-bottom: 5px; /* Espacio para el efecto hover */
-    /* Transición de color solo para el enlace */
-    transition: color 0.2s ease; 
+    color: #ebebeb;
+    padding-bottom: 5px; 
+   
+    transition: color 0.5s ease; 
 }
 
-/* Efecto Hover: Línea sutil bajo el enlace (Detallista) */
 .navLi a:hover {
-    color: #3498db; /* Azul de acento */
-    /* Crea un borde inferior al pasar el ratón */
-    border-bottom: 2px solid #3498db; 
+    color: #ffef08; 
+    text-shadow: 0 0 3px #000000, 0 0 10px #fff671;
+    border-bottom: 2px ridge #d1d1d1f5; 
 }
 
-/* Remueve el padding adicional en el li para este diseño */
+
 .navLi:hover {
     background-color: transparent; 
     border-radius: 0;
 }
 
-/* ======================================================= */
-/* 3. BOTÓN CERRAR SESIÓN */
-/* ======================================================= */
+
 
 .btnCloseSession {
-    /* Estilo como botón prominente */
-    border: 1px solid #3498db; /* Borde azul de acento */
-    background-color: #3498db; 
-    color: #ffffff;
+
+    border: 1px solid #def704; 
+    background-color: #521a00; 
+    color: #fff460;
     
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -79,8 +71,10 @@
 }
 
 .btnCloseSession:hover {
-    background-color: #2980b9; /* Azul más oscuro */
-    border-color: #2980b9;
+    background-color: #201111; /* Azul más oscuro */
+    border-color: #000000;
+    color: #fff895ec;
+    box-shadow:  inset 0 0 10px #ff0000;
 }
 
 /* ======================================================= */

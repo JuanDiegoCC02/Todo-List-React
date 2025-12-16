@@ -47,18 +47,18 @@ function FormSignIn() {
   return (
     <div className='containerAllFormSignIn'>
         <h1>Todo-List Cooking Recipes <br /> Sign In</h1>
-      <div className='FormSignIn'>
+      <div className='FormSignIn'><br />
         <div className='containerLb&InpSignIn'>
-        <label className='LbFormSignIn' htmlFor="">Username:</label><br />
+        <label className='LbFormSignIn' htmlFor="">Username:</label>
         <input className='InpFormSignIn' value={Username} onChange={userName} type="text" />
-        </div>
+        </div><br />
 
         <div className='containerLb&InpSignIn'>
-        <label className='LbFormSignIn' htmlFor="">Password:</label><br />
+        <label className='LbFormSignIn' htmlFor="">Password:</label>
         <input className='InpFormSignIn' value={Password} onChange={password} type="password" name="" />
-        </div>
+        </div><br />
 
-        <input className='btnEnterSignIn' onClick={enter} type="button" value="enter" />
+        <input className='btnEnterSignIn' onClick={enter} type="button" value="Sign In" />
 
         <p className='LinkRegister'>Don't you have an account? <br /> <Link to="/register">Register</Link> </p>
     
