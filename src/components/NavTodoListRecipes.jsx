@@ -15,7 +15,7 @@ function NavTodoListRecipes() {
             !localStorage.getItem("typeUser")&&(
             <>
           <li className='navLi'><Link to="/register">Register</Link></li>
-          <li className='navLi'><Link to="signin">Sing In</Link></li>
+          <li className='navLi'><Link to="/signin">Sing In</Link></li>
           </>
           )
           }

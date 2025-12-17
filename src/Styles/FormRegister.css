@@ -1,10 +1,5 @@
-/*=======================================================
-  1. CONTENEDOR PRINCIPAL Y CENTRADO
-=======================================================*/
 
 .containerAllFormRegister {
-    /* Fondo cohesivo con el resto de la aplicación (claro/gris) */
-    background-color: #f8f9fa; 
     font-family: 'Arial', sans-serif;
     min-height: 100vh; 
     
@@ -15,9 +10,10 @@
     box-sizing: border-box;
 }
 
-/* Título Principal */
+
 .titleTodoListRegister {
-    color: #2c3e50; 
+    color: #eafc4a; 
+    text-shadow: 0 0 5px #000000, 0 0 15px #5e0600;
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 700;
@@ -25,88 +21,85 @@
     line-height: 1.2;
 }
 
-/* Contenedor Flotante del Formulario (Tarjeta de Registro) */
+
 .formRegisterTodoList {
-    background-color: #ffffff;
+    background-color: #707070c9;
     padding: 2rem 2.5rem; 
     border-radius: 8px; 
-    /* Estilo de tarjeta consistente */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    box-shadow: 0 4px 12px rgb(7, 236, 252); 
     width: 100%;
     max-width: 450px; 
-    border: 1px solid #dcdde1;
-    border-top: 5px solid #3498db; /* Acento azul */
+    border: 2px solid #ffe600;
+    border-top: 5px solid #eeff00; 
 }
 
-/*=======================================================
-  2. ESTRUCTURA DE CAMPOS (NEW CLASS)
-=======================================================*/
 
-/* Contenedor de cada grupo Label/Input */
+
+
 .containerLb&InpRegister {
-    margin-bottom: 1.5rem; /* Espacio consistente entre campos */
+    margin-bottom: 1.5rem; /*Magin between inputs*/
 }
 
-/* Etiquetas (Labels) */
+
 .LbRegister {
     display: block; 
     font-size: 1rem;
-    color: #34495e; 
+    color: #d6fc30; 
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
-/* Campos de Entrada (Inputs) */
+
 .InpRegister {
     width: 100%;
     padding: 0.75rem;
     
-    background-color: #ffffff; 
-    color: #000000; 
+    background-color: #272727; 
+    color: #ffffff; 
     
-    border: 1px solid #aeb6bf; 
+    border: 1px solid #fffd7a; 
     border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box; 
 }
+.InpRegister:hover{
+     border-color: #d4d4d4; 
+    box-shadow: 0 0 0 3px rgb(0, 0, 0); 
+}
 
-/* Efecto Detallista de Foco */
 .InpRegister:focus {
-    border-color: #3498db; 
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3); 
+    border-color: #d4d4d4; 
+    box-shadow: 0 0 0 3px rgb(0, 0, 0); 
     outline: none; 
 }
 
-/* Checkbox (Ajuste para alineación horizontal) */
+
 .containerLb&InpRegister:last-of-type {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .checkboxRegister {
     width: 18px;
     height: 18px;
     margin-left: 8px;
-    accent-color: #3498db; 
+    accent-color: #dffd35; 
     cursor: pointer;
 }
 
-/* Ajustamos el margen del label para la línea de Terms & Conditions */
 .containerLb&InpRegister:last-of-type .LbRegister {
     margin-bottom: 0;
 }
 
-/*=======================================================
-  3. BOTÓN Y ENLACE DE INICIO DE SESIÓN
-=======================================================*/
+
 
 .btnRegister {
     width: 100%;
     padding: 0.9rem;
-    background-color: #2ecc71; /* Color de éxito (Guardar/Post) */
-    color: #ffffff;
+    background-color: #bcfd54; 
+    color: #000000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -114,32 +107,33 @@
     font-weight: 700;
     margin-top: 1.5rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 3px solid rgb(229, 255, 0);
 }
 
 .btnRegister:hover {
-    background-color: #27ae60; 
+    background-color: #1d1d1d; 
     transform: translateY(-1px); 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #dffd35;
+    box-shadow: 0 2px 8px rgb(0, 0, 0);
 }
 
-/* Enlace a Sign In */
 .LinkSignIn {
     text-align: center;
     margin-top: 2rem;
-    color: #34495e;
+    color: #000000;
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
 .LinkSignIn a {
-    color: #3498db; 
+    color: #fbff00; 
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
 }
 
 .LinkSignIn a:hover {
-    color: #2980b9;
+    color: #1304a1;
     text-decoration: underline;
 }
 
