@@ -12,8 +12,8 @@
 
 
 .titleTodoListRegister {
-    color: #eafc4a; 
-    text-shadow: 0 0 5px #000000, 0 0 15px #5e0600;
+    color: #faffb7; 
+    text-shadow: 0 0 5px #000000, 0 0 15px #fff9aa;
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 700;
@@ -23,14 +23,14 @@
 
 
 .formRegisterTodoList {
-    background-color: #707070c9;
+    background-color: #202020;
     padding: 2rem 2.5rem; 
     border-radius: 8px; 
-    box-shadow: 0 4px 12px rgb(7, 236, 252); 
+    box-shadow: 0 4px 12px rgb(255, 252, 215); 
     width: 100%;
     max-width: 450px; 
-    border: 2px solid #ffe600;
-    border-top: 5px solid #eeff00; 
+    border: 2px solid #fff278;
+    border-top: 5px solid #fcff5b; 
 }
 
 
@@ -47,6 +47,7 @@
     color: #d6fc30; 
     margin-bottom: 0.5rem;
     font-weight: 500;
+    text-align: center;
 }
 
 
@@ -54,24 +55,25 @@
     width: 100%;
     padding: 0.75rem;
     
-    background-color: #272727; 
+    background-color: #000000; 
     color: #ffffff; 
     
     border: 1px solid #fffd7a; 
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box; 
 }
 .InpRegister:hover{
-     border-color: #d4d4d4; 
-    box-shadow: 0 0 0 3px rgb(0, 0, 0); 
+     border-color: #000000; 
+    box-shadow: 0 0 0 1px rgb(221, 221, 221); 
+   
 }
 
 .InpRegister:focus {
-    border-color: #d4d4d4; 
-    box-shadow: 0 0 0 3px rgb(0, 0, 0); 
-    outline: none; 
+    border-color: #000000; 
+    box-shadow: 0 0 0 2px rgb(29, 29, 29); 
+   
 }
 
 
@@ -84,9 +86,10 @@
 .checkboxRegister {
     width: 18px;
     height: 18px;
-    margin-left: 8px;
+    margin: 0 auto;
     accent-color: #dffd35; 
     cursor: pointer;
+    display: flex;
 }
 
 .containerLb&InpRegister:last-of-type .LbRegister {
@@ -98,16 +101,16 @@
 .btnRegister {
     width: 100%;
     padding: 0.9rem;
-    background-color: #bcfd54; 
-    color: #000000;
+    background-color: #3d3d3da6; 
+    color: #f5f4f4;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1.05rem;
     font-weight: 700;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    border: 3px solid rgb(229, 255, 0);
+    border: 2px solid rgb(221, 221, 221);
 }
 
 .btnRegister:hover {
@@ -115,25 +118,26 @@
     transform: translateY(-1px); 
     color: #dffd35;
     box-shadow: 0 2px 8px rgb(0, 0, 0);
+    border: 2px solid gold;
 }
 
 .LinkSignIn {
     text-align: center;
     margin-top: 2rem;
-    color: #000000;
+    color: #c5c5c5;
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
 .LinkSignIn a {
-    color: #fbff00; 
+    color: #ffffff; 
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
 }
 
 .LinkSignIn a:hover {
-    color: #1304a1;
+    color: #eeff00;
     text-decoration: underline;
 }
 

@@ -35,17 +35,17 @@ function FormRegister() {
 
         <div className='formRegisterTodoList'>
           <div className='containerLb&InpRegister'>
-          <label className='LbRegister' htmlFor="">Username:</label>
+          <label className='LbRegister' htmlFor="">Username</label>
                 <input className='InpRegister' value={Username} onChange={userName} type="text" />
          </div><br />
 
         <div className='containerLb&InpRegister'>
-          <label className='LbRegister' htmlFor="">Email:</label>
+          <label className='LbRegister' htmlFor="">Email</label>
                 <input className='InpRegister' value={Email} onChange={email} type="email" name="" id="email" />
         </div><br />
 
         <div className='containerLb&InpRegister'>
-          <label className='LbRegister' htmlFor="">Password:</label>
+          <label className='LbRegister' htmlFor="">Password</label>
                 <input className='InpRegister' value={Password} onChange={password} type="password" name="" id="password" />
         </div><br />
 
