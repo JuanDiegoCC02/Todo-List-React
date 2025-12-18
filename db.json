@@ -20,6 +20,10 @@
       "email": "Cassie00@gmail.com",
       "password": "1234",
       "typeUser": "User"
+    },
+    {
+      "id": "1ce5",
+      "typeUser": "User"
     }
   ],
   "recipes": [
