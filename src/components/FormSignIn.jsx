@@ -49,12 +49,12 @@ function FormSignIn() {
         <h1>Todo-List Cooking Recipes <br /> Sign In</h1>
       <div className='FormSignIn'><br />
         <div className='containerLb&InpSignIn'>
-        <label className='LbFormSignIn' htmlFor="">Username:</label>
+        <label className='LbFormSignIn' htmlFor="">Username</label>
         <input className='InpFormSignIn' value={Username} onChange={userName} type="text" />
         </div><br />
 
         <div className='containerLb&InpSignIn'>
-        <label className='LbFormSignIn' htmlFor="">Password:</label>
+        <label className='LbFormSignIn' htmlFor="">Password</label>
         <input className='InpFormSignIn' value={Password} onChange={password} type="password" name="" />
         </div><br />
 
