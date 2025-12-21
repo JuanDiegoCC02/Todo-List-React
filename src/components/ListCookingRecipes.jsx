@@ -101,23 +101,52 @@ function ListCookingRecipes() {
         }, [reload] )
         const completedCount = recipes.filter(recipe => recipe.completeRecipe).length;
   return (
+
     <div className='allListRecipeContainer'>
 
-    <div className='containerCountRecipes'>
-        <h3 className='titleCountRecipes'>Count Recipes Check</h3>
-        <h4 className='countRecipesCheck'>{completedCount}</h4>
-    </div>
+        <h1 className='titleNewRecipes'>New Cook Recipes</h1>
+
+        <div className='containerCountRecipes'>
+            <h3 className='titleCountRecipes'>Recipes Count Check</h3>
+            <h4 className='countRecipesCheck'>{completedCount}</h4>
+        </div>
 
 
-        <ul className='UlListRecipes'>    
-        <h1 className='titleNewRecipes'>New Recipes</h1>
+     <ul className='UlListRecipes'>   
         {recipes.map ((recipe,index) => (
         <li className='LiListRecipes' key={index}>
-        <strong className='infoListRecipe'>Recipe Name:</strong> <br /> {recipe.nameRecipe} <br />
+        <strong className='infoListRecipe'> Name:</strong> {recipe.nameRecipe} <br />
 
-        <strong className='infoListRecipe'>Recipe Ingredients:</strong> <br /> {recipe.ingredientsRecipe} <br />
+        <strong className='infoListRecipe'> Description:</strong> {recipe.descriptionRecipe} <br />
 
-        <strong className='infoListRecipe'>Recipe Description:</strong> <br /> {recipe.descriptionRecipe} <br />
+        <strong className='infoListRecipe'> Ingredients:</strong>  {recipe.ingredientsRecipe} <br />
+
+     
+         <div>
+        <label className='LbRecipeCheck' htmlFor="">Recipe Check</label>
+        <input className='btnCheckbox'
+         type="checkbox" 
+         name="recipeCheck" 
+         id="recipeCheck" 
+         checked={recipe.completeRecipe}
+         onChange={()=>handleRecipeCheck(recipe.id,index)}
+
+        />
+       
+        
+        
+        <button className='btnEdit' onClick={()=>setShowRecipes(!showRecipes)}>Edit</button>
+        {showRecipes &&
+        <>
+        <input className='InpFormStep' onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
+        <input className='InpFormStep' onChange={(e)=> setEditIngredients(e.target.value)} value={editIngredients} type="text" placeholder='ingredients'/>
+        <input className='InpFormStep' onChange={(e)=> setEditDescription(e.target.value)} value={editDescription} type="text" placeholder='description'/>
+       
+        <button className='btnSaveEdit' onClick={()=>editFunctRecipe(recipe.id)}>Complete Edit</button>
+        </>
+        }
+        <button className='btnDelete' onClick={e=>deleteFunctRecipe(recipe.id)}>Delete</button>
+    </div>
 
      
 {/* access from card steps CookingRecipes */}
@@ -185,32 +214,6 @@ function ListCookingRecipes() {
 </div>
 
 
-        
-    {/*Card settings Recipe*/}
-    <div>
-        <label className='LbRecipeCheck' htmlFor="">Recipe Check</label>
-        <input className='btnCheckbox'
-         type="checkbox" 
-         name="recipeCheck" 
-         id="recipeCheck" 
-         checked={recipe.completeRecipe}
-         onChange={()=>handleRecipeCheck(recipe.id,index)}
-
-        />
-       
-        
-        <button className='btnDelete' onClick={e=>deleteFunctRecipe(recipe.id)}>Delete</button>
-        <button className='btnEdit' onClick={()=>setShowRecipes(!showRecipes)}>Edit</button>
-        {showRecipes &&
-        <>
-        <input className='InpFormStep' onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
-        <input className='InpFormStep' onChange={(e)=> setEditIngredients(e.target.value)} value={editIngredients} type="text" placeholder='ingredients'/>
-        <input className='InpFormStep' onChange={(e)=> setEditDescription(e.target.value)} value={editDescription} type="text" placeholder='description'/>
-       
-        <button className='btnSaveEdit' onClick={()=>editFunctRecipe(recipe.id)}>Complete Edit</button>
-        </>
-        }
-    </div>
         </li> 
     ))}
     </ul>
