@@ -6,7 +6,6 @@
     font-family: 'Arial', sans-serif;
     min-height: 100vh;
     padding: 3rem 1rem;
-    background-color: #101010; /* Fondo oscuro consistente */
     color: #ffffff;
 }
 
@@ -114,6 +113,7 @@
     border-top: 1px dashed #555;
 }
 
+/* Botón que Muestra/Oculta el Formulario de Agregar Pasos */
 .btnShowAddCookingProcess {
     background-color: #250101; /* Color de fondo del botón btnPost */
     color: #fffff6;
@@ -134,7 +134,7 @@
     box-shadow: inset 0 1px 8px #fffd7a;
 }
 
-/* Formulario para Agregar Pasos */
+/* Formulario para Agregar Pasos (Desplegable) */
 .containerFormAddStep {
     background-color: #1a1a1a;
     padding: 1rem;
@@ -166,6 +166,7 @@
     font-size: 0.9rem;
 }
 
+/* Inputs y Selects dentro del Formulario */
 .InpFormStep,
 select {
     width: 100%;
@@ -179,6 +180,7 @@ select {
     margin-bottom: 0.5rem;
 }
 
+/* Botón Guardar Paso */
 .btnSaveStep {
     width: 100%;
     padding: 0.75rem;
@@ -212,7 +214,11 @@ select {
     margin: 0;
 }
 
+/* Estilo del Contenedor de Cada Paso (Modo Lectura) */
 .LiStepsCookingRecipe {
+    display: flex; /* Asegura que los elementos estén en línea */
+    justify-content: space-between; /* Distribuye espacio entre contenido y botón */
+    align-items: center;
     background-color: #1a1a1a;
     padding: 0.5rem 0.75rem;
     margin-bottom: 0.5rem;
@@ -221,8 +227,126 @@ select {
     font-size: 0.95rem;
 }
 
+/* Estilos de Prioridad (Integrados al Tema Oscuro) */
+.priority-High {
+    color: #ff5555; /* Rojo brillante que resalta */
+    background-color: #3d0000;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 10px;
+    border: 1px solid #ff5555;
+}
+
+.priority-Medium {
+    color: #ffd700; /* Dorado/Amarillo para medio */
+    background-color: #3d3000;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 10px;
+    border: 1px solid #ffd700;
+}
+
+.priority-Low {
+    color: #00ff7f; /* Verde brillante para bajo */
+    background-color: #003d1f;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-left: 10px;
+    border: 1px solid #00ff7f;
+}
+
+/* Botón de Editar Paso (En Modo Lectura) */
+.btnEditStep {
+    background-color: transparent;
+    border: 1px solid #fcff5b;
+    color: #fcff5b;
+    padding: 0.4rem 0.7rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btnEditStep:hover {
+    background-color: #fcff5b;
+    color: #202020;
+}
+
 /* ======================================================= */
-/* 5. ACCIONES Y EDICIÓN (Check, Delete, Edit) */
+/* 5. MODO EDICIÓN DE PASO (In-Line Editing) */
+/* ======================================================= */
+
+.containerEditStep {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    flex-wrap: wrap; /* Para manejo en móvil */
+}
+
+/* Inputs y Selects dentro de la Edición */
+.containerEditStep .InpFormStep.EditStepText {
+    flex-grow: 1; 
+    min-width: 150px;
+    padding: 0.5rem 0.75rem; 
+    font-size: 0.95rem;
+    margin: 0;
+    background-color: #000000;
+    border-color: #d6fc30; /* Borde verde brillante al editar */
+}
+
+.containerEditStep .InpFormStep,
+.containerEditStep select {
+    margin: 0; /* Eliminar márgenes verticales que interfieren con flex */
+}
+
+.containerEditStep select.EditStepPriority {
+    width: 100px; /* Ancho fijo para el selector */
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    background-color: #101010;
+    border-color: #fcff5b;
+}
+
+/* Botón Guardar Cambios (Modo Edición) */
+.containerEditStep .btnSaveStep {
+    width: auto; /* Ancho automático, no 100% */
+    padding: 0.5rem 0.8rem;
+    margin: 0;
+    background-color: #d6fc30; /* Verde limón como acento principal */
+    color: #202020;
+    font-weight: 700;
+}
+
+.containerEditStep .btnSaveStep:hover {
+    background-color: #a0c21e;
+}
+
+/* Botón Cancelar Edición */
+.btnCancelEdit {
+    background-color: #a00000; /* Rojo oscuro */
+    color: white;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.btnCancelEdit:hover {
+    background-color: #ff5555;
+}
+
+/* ======================================================= */
+/* 6. ACCIONES Y EDICIÓN (Check, Delete, Edit) DE RECETA */
 /* ======================================================= */
 
 .LbRecipeCheck {
@@ -300,7 +424,7 @@ select {
 
 
 /* ======================================================= */
-/* 6. RESPONSIVIDAD (Mobile) */
+/* 7. RESPONSIVIDAD (Mobile) */
 /* ======================================================= */
 
 @media (max-width: 768px) {
@@ -329,5 +453,19 @@ select {
         margin-left: 0.25rem;
         padding: 0.5rem 0.75rem;
         font-size: 0.9rem;
+    }
+    
+    /* Adaptación de la edición de pasos en móvil */
+    .containerEditStep {
+        flex-direction: column; /* Apilar elementos en pantalla pequeña */
+        align-items: stretch;
+    }
+
+    .containerEditStep .InpFormStep.EditStepText,
+    .containerEditStep select.EditStepPriority,
+    .containerEditStep .btnSaveStep,
+    .btnCancelEdit {
+        width: 100%; /* Ocupan todo el ancho */
+        margin-top: 5px;
     }
 }
