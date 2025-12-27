@@ -15,7 +15,7 @@ function ListCookingRecipes() {
     const [editDescription, setEditDescription] = useState("")
    
     const [reload,setReload] = useState(false)
-    const [showRecipes,setShowRecipes] = useState(false)
+    const [editingRecipeId, setEditingRecipeId] = useState(null);
     const [showAddCookingProcess, setShowAddCookingProcess] = useState(false)
 
     const [editingStepId, setEditingStepId] = useState(null); 
@@ -112,14 +112,36 @@ function ListCookingRecipes() {
             setEditStepText("");
             setEditStepPriority("Medium");
         };
-    
-        // Lógica existente para inicializar la edición
-        const handleEditStep = (step) => {
+const handleEditStep = (step) => {
           setEditingStepId(step.stepId); 
           setEditStepText(step.text);    
           setEditStepPriority(step.priority); 
         };
     
+   // Lógica para iniciar la edición de RECETA
+      const handleEditRecipe = (recipe) => {
+        // Si ya está editando, la cerramos
+        if (editingRecipeId === recipe.id) {
+            setEditingRecipeId(null);
+        } else {
+            // Si no está editando, abrimos el modo edición para esta receta
+            setEditingRecipeId(recipe.id);
+            // Pre-cargamos los valores actuales
+            setEditName(recipe.nameRecipe);
+            setEditIngredients(recipe.ingredientsRecipe);
+            setEditDescription(recipe.descriptionRecipe);
+        }
+      };
+        function editFunctRecipe(id) {
+           const editRecipe = {
+              "nameRecipe":editName,
+              "ingredientsRecipe":editIngredients,
+              "descriptionRecipe" : editDescription,
+            }   
+            updateRecipes(editRecipe, id)
+            setEditingRecipeId(null)
+            setReload(!reload);
+        }
   
       
 
@@ -128,19 +150,7 @@ function ListCookingRecipes() {
                 deleteRecipes(id)
                 setReload(!reload);
             }   
-    // function edit
-        function editFunctRecipe(id) {
-            const editRecipe = {
-                "nameRecipe":editName,
-                "ingredientsRecipe":editIngredients,
-                "descriptionRecipe" : editDescription,
-                
-            }   
-            updateRecipes(editRecipe, id)
-            setShowRecipes(false)
-            setReload(!reload);
-        }
-    
+  
         useEffect(()=>{
             async function list() {
                 const data = await getRecipes ("recipes")
@@ -184,8 +194,16 @@ function ListCookingRecipes() {
        
         
         
-        <button className='btnEdit' onClick={()=>setShowRecipes(!showRecipes)}>Edit</button>
-        {showRecipes &&
+       {/* CAMBIO 2: Llama a handleEditRecipe, pasando la receta */}
+        <button 
+            className='btnEdit' 
+            onClick={() => handleEditRecipe(recipe)}
+        >
+            {editingRecipeId === recipe.id ? 'Close Edit' : 'Edit'}
+        </button>
+        
+        {/* CAMBIO 3: Mostrar inputs SOLO si editingRecipeId coincide con el ID de esta receta */}
+        {editingRecipeId === recipe.id &&
         <>
         <input className='InpFormStep' onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
         <input className='InpFormStep' onChange={(e)=> setEditIngredients(e.target.value)} value={editIngredients} type="text" placeholder='ingredients'/>
@@ -272,11 +290,8 @@ function ListCookingRecipes() {
    
                 <>
                     {step.text} <span className={`priority-${step.priority}`}>[{step.priority}]</span>
-                    <button className='btnEditStep' onClick={() => handleEditStep(step)}>
-                        Edit Step
-                    </button>
+                    <button className='btnEditStep' onClick={() => handleEditStep(step)}> Edit Step </button>
                 </>
-
             )}
         </li> 
     ))}

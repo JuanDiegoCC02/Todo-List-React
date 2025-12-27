@@ -43,7 +43,7 @@
         {
           "stepId": 1766349566038,
           "text": "help",
-          "priority": "Low",
+          "priority": "Medium",
           "isCompleted": false
         },
         {
@@ -56,9 +56,9 @@
     },
     {
       "id": "f79d",
-      "nameRecipe": "help",
-      "ingredientsRecipe": "h",
-      "descriptionRecipe": "h",
+      "nameRecipe": "recipe",
+      "ingredientsRecipe": "recipe",
+      "descriptionRecipe": "recipe",
       "completeRecipe": false,
       "Steps": [
         {
@@ -69,8 +69,8 @@
         },
         {
           "stepId": 1766767537606,
-          "text": "emplatar",
-          "priority": "Medium",
+          "text": "cooking",
+          "priority": "High",
           "isCompleted": false
         }
       ]
