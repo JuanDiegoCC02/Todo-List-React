@@ -1,0 +1,111 @@
+/* ======================================================= */
+/* 1. CONTENEDOR PRINCIPAL Y TÍTULO DEL HOME */
+/* ======================================================= */
+
+.containerTitleHome {
+    padding: 3rem 1rem 1rem;
+    text-align: center;
+}
+
+.TitleHome {
+    /* Mismo estilo de título que titleNewRecipes */
+    color: #faffb7; 
+    text-shadow: 0 0 5px #000000, 0 0 20px #fff9aa;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    display: inline-block;
+    border-bottom: 3px solid #fcff5b; /* Línea separadora brillante */
+    padding-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+/* ======================================================= */
+/* 2. CONTENEDOR DE TARJETAS EXPLICATIVAS (CARDS) */
+/* ======================================================= */
+
+.containerAllCardsHome {
+    max-width: 1000px;
+    margin: 0 auto 5rem;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en pantallas pequeñas */
+    gap: 30px; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+.containerCardHome {
+    background-color: #2c2c2c; /* Fondo de tarjeta similar a LiListRecipes */
+    padding: 2rem;
+    border-radius: 12px;
+    /* Sombra tecnológica similar a LiListRecipes: oscura y con borde brillante */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 15px 1px rgba(255, 252, 215, 0.2); 
+    border: 1px solid #444;
+    width: 450px; /* Ancho fijo para dos columnas en desktop */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.containerCardHome:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 25px 3px #fcff5b; /* Efecto hover */
+}
+
+/* ======================================================= */
+/* 3. CONTENIDO DE LAS TARJETAS (TÍTULO, DESCRIPCIÓN, IMAGEN) */
+/* ======================================================= */
+
+.TitleExplainApp {
+    color: #d6fc30; /* Verde limón brillante */
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.DescriptionApp {
+    color: #fcff5b; /* Amarillo brillante para etiquetas o puntos clave */
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.containerImgExplain {
+    background-color: #1a1a1a; /* Fondo muy oscuro para el contenedor de la imagen */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px dashed #555;
+    text-align: center;
+}
+
+.ImgExplain {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block; /* Asegura que no haya espacio extra debajo de la imagen */
+    margin: 0 auto;
+}
+
+/* ======================================================= */
+/* 4. RESPONSIVIDAD (Mobile) */
+/* ======================================================= */
+
+@media (max-width: 768px) {
+    .TitleHome {
+        font-size: 2rem;
+    }
+
+    .containerAllCardsHome {
+        gap: 20px;
+    }
+
+    .containerCardHome {
+        width: 100%; /* Una sola columna en móvil */
+        max-width: 400px;
+    }
+
+    .TitleExplainApp {
+        font-size: 1.3rem;
+    }
+}
