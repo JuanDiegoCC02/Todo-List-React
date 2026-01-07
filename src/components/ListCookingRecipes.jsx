@@ -50,7 +50,7 @@ function ListCookingRecipes() {
     setRecipes(updatedRecipes);
 
     setNewStepText("");
-    setNewStepPriority("Medium"); // Corregido el valor inicial
+    setNewStepPriority("Medium"); 
     setShowAddCookingProcess(false);
     setCurrentRecipeID(null);
     };
@@ -79,7 +79,7 @@ function ListCookingRecipes() {
     // recipe steps handle function
      const handleSaveStep = async (recipeId) => {
             if (!editStepText.trim()) {
-                alert("El texto del paso no puede estar vacío.");
+                alert("Full edition to continue.");
                 return;
             }
     
@@ -112,11 +112,26 @@ function ListCookingRecipes() {
             setEditStepText("");
             setEditStepPriority("Medium");
         };
-const handleEditStep = (step) => {
-          setEditingStepId(step.stepId); 
-          setEditStepText(step.text);    
-          setEditStepPriority(step.priority); 
-        };
+        const handleEditStep = (step) => {
+              setEditingStepId(step.stepId); 
+              setEditStepText(step.text);    
+              setEditStepPriority(step.priority); 
+            };
+        const handleDeleteStep = async (recipeId, stepIdToDelete) => {
+            const recipeIndex= recipes.findIndex(r => r.id === recipeId);
+        if (recipeIndex === -1) return;
+        
+        const currentSteps = recipes[recipeIndex].Steps || [];
+        const updatedSteps = currentSteps.filter(step => step.stepId !== stepIdToDelete);
+        await updateRecipes({ Steps: updatedSteps }, recipeId);
+
+      
+        const updatedRecipes = [...recipes];
+        updatedRecipes[recipeIndex].Steps = updatedSteps;
+        setRecipes(updatedRecipes);
+
+     
+    };
     
    // Lógica para iniciar la edición de RECETA
       const handleEditRecipe = (recipe) => {
@@ -141,15 +156,15 @@ const handleEditStep = (step) => {
             updateRecipes(editRecipe, id)
             setEditingRecipeId(null)
             setReload(!reload);
-        }
+          }
   
       
 
-    // function delete
-            function deleteFunctRecipe (id) {
-                deleteRecipes(id)
-                setReload(!reload);
-            }   
+            // function delete
+      async function deleteFunctRecipe(id) {
+            await deleteRecipes(id)
+           setReload
+        }
   
         useEffect(()=>{
             async function list() {
@@ -194,7 +209,6 @@ const handleEditStep = (step) => {
        
         
         
-       {/* CAMBIO 2: Llama a handleEditRecipe, pasando la receta */}
         <button 
             className='btnEdit' 
             onClick={() => handleEditRecipe(recipe)}
@@ -202,7 +216,6 @@ const handleEditStep = (step) => {
             {editingRecipeId === recipe.id ? 'Close Edit' : 'Edit'}
         </button>
         
-        {/* CAMBIO 3: Mostrar inputs SOLO si editingRecipeId coincide con el ID de esta receta */}
         {editingRecipeId === recipe.id &&
         <>
         <input className='InpFormStep' onChange={(e)=> setEditName(e.target.value)} value={editName} type="text" placeholder='name' />
@@ -240,7 +253,7 @@ const handleEditStep = (step) => {
                 id={`step-text-${recipe.id}`}
                 value={newStepText}
                 onChange={(e) => setNewStepText(e.target.value)}
-                placeholder="Ej: Lavar y cortar las verduras"
+                placeholder="Example: Wash the lemons and grate only the green outer part, not the white inner part."
             /> 
             
             {/* select from priority */}
@@ -291,6 +304,10 @@ const handleEditStep = (step) => {
                 <>
                     {step.text} <span className={`priority-${step.priority}`}>[{step.priority}]</span>
                     <button className='btnEditStep' onClick={() => handleEditStep(step)}> Edit Step </button>
+                    <button 
+                     className='btnDeleteStep' 
+                     onClick={() => handleDeleteStep(recipe.id, step.stepId)}
+                    >Delete Step</button>
                 </>
             )}
         </li> 

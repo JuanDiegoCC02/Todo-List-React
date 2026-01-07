@@ -1,13 +1,8 @@
-/* ======================================================= */
-/* 1. Contenedor Principal y Título Exterior */
-/* (Basado en .containerAllFormRegister y .titleTodoListRegister) */
-/* ======================================================= */
-
 .ContainerAllForm {
-    /* Estilo del contenedor principal */
+    
     font-family: 'Arial', sans-serif;
     min-height: 100vh; 
-    background-color: #001a1f; /* Fondo oscuro ligeramente diferente al formulario */
+    background-color: #001a1f; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,9 +10,8 @@
     box-sizing: border-box;
 }
 
-/* Título Principal (e.g., "Create Your Recipe") */
+
 .TituloP {
-    /* Basado en .titleTodoListRegister */
     color: #a7d0e7; 
     text-shadow: 0 0 5px #083b53, 0 0 15px #07a6f0;
     margin-bottom: 2.5rem;
@@ -25,101 +19,82 @@
     font-weight: 700;
     text-align: center;
     line-height: 1.2;
-    padding: 0 1rem; /* Padding para evitar que la sombra toque los bordes en móvil */
+    padding: 0 1rem; 
 }
 
-/* ======================================================= */
-/* 2. Contenedor del Formulario (FormContainer) */
-/* (Basado en .formRegisterTodoList) */
-/* ======================================================= */
+
 
 .FormContainer {
-    /* Contenedor flotante del formulario */
-    background-color: #002025; /* Fondo del formulario de registro */
+    background-color: #002025;
     padding: 2.5rem;
     border-radius: 8px; 
-    box-shadow: 0 4px 12px rgb(107, 213, 255); /* Sombra azul */
+    box-shadow: 0 4px 12px rgb(107, 213, 255); 
     width: 100%;
-    max-width: 450px; /* Ancho máximo para el formulario de recetas */
+    max-width: 450px; 
     border: 2px solid #78aeff;
     border-top: 5px solid #00232c; 
 }
 
 /* Título interno (si existe) */
 .containerFormRecipes {
-    /* Adaptación del título del formulario de registro */
     margin-bottom: 2rem;
     text-align: center;
 }
 
 .tituloOnFormRecipes {
-    /* Estilo para el título interno del formulario */
-    color: #d6fc30; 
+   
+    color: #6bb9e6; 
     font-size: 1.5rem;
     margin: 0;
     font-weight: 600;
     text-shadow: 0 0 5px #000000;
 }
 
-/* ======================================================= */
-/* 3. Campos de Formulario (Labels e Inputs) */
-/* (Basado en .containerLb&InpRegister, .LbRegister, .InpRegister) */
-/* ======================================================= */
+
 
 .containerUniqueFormRecipes {
-    /* Estilo para cada grupo Label/Input */
     margin-bottom: 1.5rem;
 }
 
-/* Etiquetas (Labels) */
+
 .labelFormRecipe {
-    /* Basado en .LbRegister */
+    
     display: block; 
     font-size: 1rem; 
-    color: #d6fc30; /* Color amarillo brillante de acento */
+    color: #d6fc30;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    text-align: left; /* Alineación a la izquierda dentro del campo */
+    text-align: center; 
 }
 
-/* Campos de info (Inputs y Textareas) */
 .inputFormRecipes {
-    /* Basado en .InpRegister */
+    
     width: 100%;
     padding: 0.75rem;
     
     background-color: #000000; 
     color: #ffffff; 
-    border: 1px solid #7abfff; /* Borde azul claro */
+    border: 1px solid #7abfff; 
     
     border-radius: 4px;
     font-size: 0.9rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box; 
-    min-height: 40px; /* Altura mínima para inputs */
-    resize: vertical; /* Permitir resize vertical para textareas */
+    min-height: 40px;
+    resize: vertical; 
 }
 
 .inputFormRecipes:hover {
-    /* Hover basado en .InpRegister:hover */
     border-color: #000000; 
     box-shadow: 0 0 0 1px rgb(221, 221, 221); 
 }
 
 .inputFormRecipes:focus {
-    /* Focus basado en .InpRegister:focus */
      border-color: #000000; 
     box-shadow: 0 0 0 1px rgb(221, 221, 221); 
 }
 
-
-/* ======================================================= */
-/* 4. Botón de Publicación (Post) */
-/* (Basado en .btnRegister) */
-/* ======================================================= */
-
 .btnPost {
-    /* Estilo del botón .btnRegister */
     width: 100%;
     padding: 1rem;
     
@@ -131,7 +106,7 @@
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 700;
-    margin-top: 1.5rem; /* Ajuste de margen superior */
+    margin-top: 1.5rem; 
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
@@ -143,11 +118,6 @@
     border: 2px solid rgb(0, 140, 255);
 }
 
-
-/* ======================================================= */
-/* 5. RESPONSIVIDAD (Móvil) */
-/* (Basado en la responsividad del registro) */
-/* ======================================================= */
 
 @media (max-width: 650px) {
     .FormContainer {

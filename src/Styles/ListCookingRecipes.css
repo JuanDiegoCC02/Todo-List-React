@@ -1,471 +1,373 @@
-/* ======================================================= */
-/* 1. CONTENEDOR PRINCIPAL Y TÍTULO */
-/* ======================================================= */
 
 .allListRecipeContainer {
     font-family: 'Arial', sans-serif;
-    min-height: 100vh;
+    min-height: 100vh; 
+    background-color: #001a1f; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 3rem 1rem;
+    box-sizing: border-box;
     color: #ffffff;
 }
 
 .titleNewRecipes {
-    color: #faffb7; /* Amarillo claro del componente de formulario */
-    text-shadow: 0 0 5px #000000, 0 0 20px #fff9aa;
+    color: #a7d0e7; 
+    text-shadow: 0 0 5px #083b53, 0 0 15px #07a6f0;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
+    font-size: 2.5rem; 
     font-weight: 700;
     text-align: center;
-    border-bottom: 3px solid #fcff5b; /* Línea separadora brillante */
-    padding-bottom: 0.5rem;
+    line-height: 1.2;
+    padding: 0 1rem; 
 }
 
-/* ======================================================= */
-/* 2. CONTADOR DE RECETAS (Count Check) */
-/* ======================================================= */
+
 
 .containerCountRecipes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #202020; /* Color de fondo del formulario */
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(255, 252, 215, 0.5); /* Sombra suave y brillante */
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #002025;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    border: 2px solid #78aeff;
+    box-shadow: 0 2px 8px rgb(107, 213, 255); 
 }
 
 .titleCountRecipes {
-    color: #d6fc30; /* Verde limón brillante */
-    font-size: 1.1rem;
-    font-weight: 600;
+    color: #6bb9e6;
     margin: 0;
+    font-size: 1.2rem;
 }
 
 .countRecipesCheck {
-    color: #fcff5b; /* Amarillo brillante */
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin: 0;
+    color: #d6fc30; 
+    font-size: 2rem;
+    margin: 0.5rem 0 0;
 }
 
-/* ======================================================= */
-/* 3. LISTA DE RECETAS (UL y LI) */
-/* ======================================================= */
+
 
 .UlListRecipes {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: 1200px;
-    /* Usamos Grid para organizar las tarjetas en columnas */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    width: 100%;
+    max-width: 800px; 
+    font-size: 1.3rem;
+    color: #30e4fc;
 }
 
 .LiListRecipes {
-    background-color: #2c2c2c; /* Fondo de tarjeta más oscuro que el contenedor */
+    background-color: #002025;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 15px 1px rgba(255, 252, 215, 0.2); /* Sombra tecnológica */
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px; 
+    margin-bottom: 2rem;
+    border: 2px solid #78aeff;
+    box-shadow: 0 4px 12px rgb(107, 213, 255); 
+    transition: box-shadow 0.3s ease;
 }
 
 .LiListRecipes:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9), 0 0 25px 3px #fcff5b; /* Efecto hover innovador */
+    box-shadow: 0 6px 15px rgb(0, 140, 255); 
 }
 
 .infoListRecipe {
+    color: #6bb9e6; 
+    font-weight: 700;
     display: inline-block;
-    color: #fcff5b; /* Títulos de información en amarillo brillante */
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Estilo para el contenido de la receta (Name, Description, Ingredients) */
-.LiListRecipes > br + br {
-    display: none; /* Oculta los <br> extra para mejor espaciado */
-}
-.LiListRecipes > strong + br + br + br {
-    display: block; /* Mantiene la separación después de la info */
-    content: " ";
-    margin-bottom: 1rem;
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
 }
 
 
-/* ======================================================= */
-/* 4. SECCIÓN DE PASOS DE COCCIÓN (Steps) */
-/* ======================================================= */
-
-.allCardSteps {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px dashed #555;
+.LbRecipeCheck {
+    color: #d6fc30; 
+    margin-right: 0.5rem;
 }
 
-/* Botón que Muestra/Oculta el Formulario de Agregar Pasos */
-.btnShowAddCookingProcess {
-    background-color: #250101; /* Color de fondo del botón btnPost */
-    color: #fffff6;
-    border: 1px solid gold;
-    padding: 0.75rem 1rem;
+/* Checkbox */
+.btnCheckbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #d6fc30; 
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.btnEdit, .btnDelete, .btnSaveEdit {
+    padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
     transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btnEdit {
+    background-color: #083b53;
+    color: #a7d0e7;
+    border-color: #78aeff;
+}
+.btnEdit:hover {
+    background-color: #005f96;
+    color: #ffffff;
+}
+
+.btnSaveEdit {
+    background-color: #006400; 
+    color: #d6fc30;
+    border-color: #d6fc30;
+}
+.btnSaveEdit:hover {
+    background-color: #008000;
+}
+
+/* Botón Eliminar */
+.btnDelete {
+    background-color: #8b0000; 
+    color: #ffffff;
+    border-color: #ff0000;
+}
+.btnDelete:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 5px #ff0000;
+}
+
+
+.LiListRecipes .InpFormStep {
+    display: block;
+    margin-top: 0.5rem;
     width: 100%;
-    margin-bottom: 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btnShowAddCookingProcess:hover {
-    background-color: #000000;
-    color: #dffd35;
-    border-color: #dffd35;
-    box-shadow: inset 0 1px 8px #fffd7a;
+
+.allCardSteps {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #78aeff;
 }
 
-/* Formulario para Agregar Pasos (Desplegable) */
-.containerFormAddStep {
-    background-color: #1a1a1a;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #333;
+.titleStepsCookingRecipe {
+    color: #30e4fc; 
+    font-size: 1.1rem;
     margin-top: 1rem;
+    border-bottom: 1px solid #999999;
+    padding-bottom: 0.5rem;
+}
+
+.btnShowAddCookingProcess {
+    background-color: #00232c;
+    color: #78aeff;
+    border: 1px solid #78aeff;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.btnShowAddCookingProcess:hover {
+    background-color: #004d60;
+}
+
+.containerFormAddStep {
+    background-color: #003038; 
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    border: 1px solid #d6fc30;
 }
 
 .hrCardAddStep {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #fcff5b, rgba(0, 0, 0, 0));
+    border-color: #78aeff;
     margin: 1rem 0;
 }
 
 .titleNewStep {
     color: #d6fc30;
-    font-size: 1.2rem;
-    margin-top: 0;
+    font-size: 1rem;
     margin-bottom: 1rem;
-    text-align: center;
 }
 
 .LbFormStep {
-    display: block;
-    color: #b0f443;
+    color: #a7d0e7;
+    font-weight: 500;
     margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
 }
 
-/* Inputs y Selects dentro del Formulario */
-.InpFormStep,
-select {
-    width: 100%;
-    padding: 0.6rem;
-    background-color: #000000;
-    color: #ffffff;
-    border: 1px solid #fffd7a;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    box-sizing: border-box;
-    margin-bottom: 0.5rem;
-}
-
-/* Botón Guardar Paso */
-.btnSaveStep {
+.InpFormStep, .containerFormAddStep select {
     width: 100%;
     padding: 0.75rem;
-    background-color: #38761d; /* Verde oscuro */
-    color: white;
-    border: none;
+    background-color: #000000; 
+    color: #ffffff; 
+    border: 1px solid #7abfff; 
+    border-radius: 4px;
+    font-size: 0.9rem;
+    box-sizing: border-box; 
+    margin-bottom: 0.5rem;
+}
+
+.btnSaveStep {
+    background-color: #005600; 
+    color: #d6fc30;
+    border: 1px solid #d6fc30;
+    padding: 0.75rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 1rem;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s;
 }
-
 .btnSaveStep:hover {
-    background-color: #559928;
+    background-color: #007f00;
 }
 
-/* Listado de Pasos */
-.titleStepsCookingRecipe {
-    color: #fcff5b;
-    font-size: 1.1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    border-left: 4px solid #d6fc30;
-    padding-left: 0.5rem;
-}
 
 .UlListSteps {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-top: 1rem;
 }
 
-/* Estilo del Contenedor de Cada Paso (Modo Lectura) */
 .LiStepsCookingRecipe {
-    display: flex; /* Asegura que los elementos estén en línea */
-    justify-content: space-between; /* Distribuye espacio entre contenido y botón */
-    align-items: center;
-    background-color: #1a1a1a;
-    padding: 0.5rem 0.75rem;
+    background-color: #001a1f; 
+    border: 1px solid #083b53;
+    padding: 0.75rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 4px;
-    border-left: 3px solid #d6fc30; /* Indicador de paso */
-    font-size: 0.95rem;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    color: #a7d0e7;
+    font-size: 1rem;
 }
 
-/* Estilos de Prioridad (Integrados al Tema Oscuro) */
 .priority-High {
-    color: #ff5555; /* Rojo brillante que resalta */
-    background-color: #3d0000;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-left: 10px;
-    border: 1px solid #ff5555;
+    color: #ff4d4d; 
+    font-weight: 700;
+    margin-left: 0.5rem;
 }
-
 .priority-Medium {
-    color: #ffd700; /* Dorado/Amarillo para medio */
-    background-color: #3d3000;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-left: 10px;
-    border: 1px solid #ffd700;
+    color: #d6fc30; 
+    font-weight: 700;
+    margin-left: 0.5rem;
 }
-
 .priority-Low {
-    color: #00ff7f; /* Verde brillante para bajo */
-    background-color: #003d1f;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-left: 10px;
-    border: 1px solid #00ff7f;
+    color: #78aeff; 
+    font-weight: 700;
+    margin-left: 0.5rem;
 }
 
-/* Botón de Editar Paso (En Modo Lectura) */
-.btnEditStep {
-    background-color: transparent;
-    border: 1px solid #fcff5b;
-    color: #fcff5b;
-    padding: 0.4rem 0.7rem;
+.btnEditStep, .btnDeleteStep {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.8rem;
-    margin-left: 10px;
-    transition: background-color 0.2s, color 0.2s;
+    margin-left: 1rem;
+    transition: background-color 0.2s;
 }
-
+.btnEditStep {
+    background-color: #004d60;
+    color: #a7d0e7;
+    border: 1px solid #78aeff;
+}
 .btnEditStep:hover {
-    background-color: #fcff5b;
-    color: #202020;
+    background-color: #007f9c;
 }
-
-/* ======================================================= */
-/* 5. MODO EDICIÓN DE PASO (In-Line Editing) */
-/* ======================================================= */
+.btnDeleteStep {
+    background-color: #610000;
+    color: #ffc4c4;
+    border: 1px solid #ff4d4d;
+}
+.btnDeleteStep:hover {
+    background-color: #9c0000;
+}
 
 .containerEditStep {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     width: 100%;
-    gap: 10px;
-    flex-wrap: wrap; /* Para manejo en móvil */
+    gap: 0.5rem;
 }
-
-/* Inputs y Selects dentro de la Edición */
-.containerEditStep .InpFormStep.EditStepText {
-    flex-grow: 1; 
+.EditStepText {
+    flex-grow: 1;
     min-width: 150px;
-    padding: 0.5rem 0.75rem; 
-    font-size: 0.95rem;
+}
+.EditStepPriority {
+    width: auto;
+    min-width: 100px;
+    flex-shrink: 0;
     margin: 0;
-    background-color: #000000;
-    border-color: #d6fc30; /* Borde verde brillante al editar */
 }
-
-.containerEditStep .InpFormStep,
-.containerEditStep select {
-    margin: 0; /* Eliminar márgenes verticales que interfieren con flex */
-}
-
-.containerEditStep select.EditStepPriority {
-    width: 100px; /* Ancho fijo para el selector */
-    padding: 0.5rem;
-    font-size: 0.95rem;
-    background-color: #101010;
-    border-color: #fcff5b;
-}
-
-/* Botón Guardar Cambios (Modo Edición) */
-.containerEditStep .btnSaveStep {
-    width: auto; /* Ancho automático, no 100% */
-    padding: 0.5rem 0.8rem;
-    margin: 0;
-    background-color: #d6fc30; /* Verde limón como acento principal */
-    color: #202020;
-    font-weight: 700;
-}
-
-.containerEditStep .btnSaveStep:hover {
-    background-color: #a0c21e;
-}
-
-/* Botón Cancelar Edición */
 .btnCancelEdit {
-    background-color: #a00000; /* Rojo oscuro */
-    color: white;
-    padding: 0.5rem 0.8rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
-}
-
-.btnCancelEdit:hover {
-    background-color: #ff5555;
-}
-
-/* ======================================================= */
-/* 6. ACCIONES Y EDICIÓN (Check, Delete, Edit) DE RECETA */
-/* ======================================================= */
-
-.LbRecipeCheck {
-    color: #d6fc30;
-    font-weight: 500;
-    margin-right: 0.5rem;
-}
-
-.btnCheckbox {
-    /* Estilo minimalista para el checkbox */
-    accent-color: #d6fc30;
-    width: 18px;
-    height: 18px;
-    cursor: pointer;
-    margin-right: 1.5rem;
-}
-
-.btnDelete,
-.btnEdit {
-    padding: 0.6rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.75rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 600;
-    margin-left: 0.5rem;
-    transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s;
 }
-
-.btnDelete {
-    background-color: #a00000; /* Rojo oscuro */
-    color: white;
-    border: 1px solid #ff5555;
-}
-
-.btnDelete:hover {
-    background-color: #ff5555;
-    color: black;
-    box-shadow: 0 0 5px #ff5555;
-}
-
-.btnEdit {
-    background-color: #202020;
-    color: #fcff5b;
-    border: 1px solid #fcff5b;
-}
-
-.btnEdit:hover {
-    background-color: #fcff5b;
-    color: #202020;
-    box-shadow: 0 0 5px #fcff5b;
-}
-
-.btnSaveEdit {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #38761d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 700;
-    margin-top: 1rem;
-    transition: background-color 0.2s ease;
-}
-
-.btnSaveEdit:hover {
-    background-color: #559928;
-}
-
-/* Estilos de inputs de edición */
-.LiListRecipes .InpFormStep {
-    margin-top: 0.5rem;
-    background-color: #101010;
-    border: 1px solid #d6fc30;
+.btnCancelEdit:hover {
+    background-color: #555;
 }
 
 
-/* ======================================================= */
-/* 7. RESPONSIVIDAD (Mobile) */
-/* ======================================================= */
 
 @media (max-width: 768px) {
     .UlListRecipes {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
-        gap: 1.5rem;
+        max-width: 100%;
     }
-
+    
     .titleNewRecipes {
         font-size: 2rem;
-        margin-bottom: 1.5rem;
     }
-
+    
     .LiListRecipes {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
-    .containerCountRecipes {
-        gap: 1rem;
-        padding: 0.5rem 1rem;
-        margin-bottom: 2rem;
+    .LiListRecipes > div:first-of-type {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .btnEdit, .btnDelete, .btnSaveEdit {
+        flex-grow: 1; 
+        margin-right: 0;
+        margin-top: 0.5rem;
     }
     
-    .btnDelete,
-    .btnEdit {
-        margin-left: 0.25rem;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.9rem;
+    .btnCheckbox {
+        margin-left: 0.5rem;
     }
-    
-    /* Adaptación de la edición de pasos en móvil */
+
+    .LiStepsCookingRecipe {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .btnEditStep, .btnDeleteStep {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
     .containerEditStep {
-        flex-direction: column; /* Apilar elementos en pantalla pequeña */
+        flex-direction: column;
         align-items: stretch;
     }
 
-    .containerEditStep .InpFormStep.EditStepText,
-    .containerEditStep select.EditStepPriority,
-    .containerEditStep .btnSaveStep,
-    .btnCancelEdit {
-        width: 100%; /* Ocupan todo el ancho */
-        margin-top: 5px;
+    .EditStepText, .EditStepPriority, .btnSaveStep, .btnCancelEdit {
+        width: 100%;
+        margin: 0.25rem 0;
     }
 }

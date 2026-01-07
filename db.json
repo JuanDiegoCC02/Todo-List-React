@@ -35,12 +35,6 @@
       "completeRecipe": true,
       "Steps": [
         {
-          "stepId": 1765571864234,
-          "text": "Lavar",
-          "priority": "High",
-          "isCompleted": false
-        },
-        {
           "stepId": 1766349566038,
           "text": "help",
           "priority": "Medium",
@@ -59,7 +53,7 @@
       "nameRecipe": "recipe",
       "ingredientsRecipe": "recipe",
       "descriptionRecipe": "recipe",
-      "completeRecipe": false,
+      "completeRecipe": true,
       "Steps": [
         {
           "stepId": 1766767516112,
