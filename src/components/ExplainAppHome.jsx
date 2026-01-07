@@ -6,7 +6,7 @@ import listImgRecipes from '../images/listGetRecipes.png'
 
 function ExplainAppHome() {
   return (
-    <div>
+    <div className='contianerHome'>
         <div className='containerTitleHome'><h1 className='TitleHome'>Explanation of the Todo-List of Recipes</h1></div>
 
   <div className='containerAllCardsHome'>

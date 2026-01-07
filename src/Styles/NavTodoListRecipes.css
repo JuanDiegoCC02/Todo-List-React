@@ -2,7 +2,7 @@
 /* navAllContainer */
 .navAllContainer {
     width: 100%;
-    background-color: #feffa5;
+    background-color: #262b2a;
     margin: 0 auto;
     font-family: 'Times New Roman', Times, serif;
     position: relative;
@@ -15,12 +15,12 @@
     list-style: none;
     padding: 1rem 2rem;
     margin: 0;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid rgb(172, 172, 172);
     display: flex; 
     justify-content: center;
     align-items: center; 
     gap: 2rem; 
-     box-shadow: 0 0 10px 4px #fcf4af, inset 0 0 10px #2c2200;
+     box-shadow: 0 0 10px 4px #005f96, inset 0 0 10px #000000;
      border-radius: 3px;
 }
 
@@ -37,15 +37,15 @@
 /* Estilo del enlace (Link) */
 .navLi a {
     text-decoration: none;
-    color: #3a1500;
+    color: #00a9d3;
     padding-bottom: 5px; 
     transition: color 0.3s ease; 
 }
 
 .navLi a:hover {
-    color: #ffffff; 
-    text-shadow: 0 0 5px #000000, 0 0 15px #000000;
-    border-bottom: 2px solid #2b1800; 
+    color: #27ffff; 
+    text-shadow: 0 0 5px #050050, 0 0 15px #050050;
+    border-bottom: 2px ridge #66e4fd; 
 }
 
 
@@ -58,7 +58,7 @@
 
 .btnCloseSession {
 
-    border: 1px solid #def704; 
+    border: 1px solid #ff1100; 
     background-color: #521a00; 
     color: #fff460;
     

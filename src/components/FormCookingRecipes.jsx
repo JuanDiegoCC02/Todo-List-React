@@ -45,7 +45,7 @@
         
         <div className='FormContainer' >
             <div className='containerFormRecipes'>
-                <h3 className='tituloOnFormRecipes'>Information Recipe</h3>
+                <h3 className='tituloOnFormRecipes'>Recipe Information</h3>
             </div>
 
         <div className='containerUniqueFormRecipes'>
