@@ -133,13 +133,13 @@ function ListCookingRecipes() {
      
     };
     
-   // Lógica para iniciar la edición de RECETA
+   // logic para iniciar la edición de RECETA
       const handleEditRecipe = (recipe) => {
-        // Si ya está editando, la cerramos
+        // Si ya está en edicion, la cerramos
         if (editingRecipeId === recipe.id) {
             setEditingRecipeId(null);
         } else {
-            // Si no está editando, abrimos el modo edición para esta receta
+            // else si no cargar para abrir el modo edición para esta receta
             setEditingRecipeId(recipe.id);
             // Pre-cargamos los valores actuales
             setEditName(recipe.nameRecipe);
@@ -163,7 +163,7 @@ function ListCookingRecipes() {
             // function delete
       async function deleteFunctRecipe(id) {
             await deleteRecipes(id)
-           setReload
+           setReload(!reload)
         }
   
         useEffect(()=>{

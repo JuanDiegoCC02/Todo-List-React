@@ -10,7 +10,7 @@
         const [nameRecipe, setNameRecipe]=useState()
         const [ingredientsRecipe, setIngredientsRecipe]=useState()
         const [descriptionRecipe, setDescriptionRecipe] =useState()
-        const [recipes, setRecipes] = useState([])
+     
 
         
         const [reload,setReload] = useState(false)
@@ -32,9 +32,18 @@
         }
 
 
-        function post() {          
+        function post() {         
+            try {
             postRecipes( nameRecipe, ingredientsRecipe, descriptionRecipe, false)
-            setReload(!reload)
+              setReload(!reload)
+                setNameRecipe("")
+                setDescriptionRecipe("")
+                setIngredientsRecipe("")
+            } catch (error) {
+                console.error("Post of the failed cooking recipe.", error);
+                alert("Post of the Failed cooking recipe.")
+            } 
+          
         }
 
     return (
