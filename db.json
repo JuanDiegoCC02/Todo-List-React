@@ -26,5 +26,28 @@
       "typeUser": "User"
     }
   ],
-  "recipes": []
+  "recipes": [
+    {
+      "id": "e2ec",
+      "nameRecipe": "Rice with chicken",
+      "ingredientsRecipe": "Chicken Pre-cooked rice Fresh vegetables: onion, red bell peppers, carrot, celery, and tomato Corn and peas Achiote Lizano sauce Seasonings: salt, chicken bouillon, paprika, black pepper, and all-purpose seasoning.",
+      "descriptionRecipe": "Costa Rican-style chicken and rice is a dish that combines cooked chicken with rice, vegetables, and spices, and is characterized by its orange-yellow color. This dish is a symbol of Costa Rica's rich culinary heritage.",
+      "completeRecipe": false,
+      "Steps": [
+        {
+          "stepId": 1769804095323,
+          "text": "Cook the chicken in the pressure cooker in the pressure cooker, with the onion, red pepper and some seasonings to taste.",
+          "priority": "High",
+          "isCompleted": false
+        }
+      ]
+    },
+    {
+      "id": "4ea1",
+      "nameRecipe": "Rice and Beans",
+      "ingredientsRecipe": "Olive Oil 2 tablespoons Yellow Onion (chopped, about 1 1/4 cups) 1 Chicken (or vegetable stock or water) 1 ¾ cups Salt 1 teaspoon Grain Rice (long) 1 cup Pinto Beans (or, 15.5-ounce, black) 1 can Lime Wedges Or Cilantro Leaves, For Garnish (optional add",
+      "descriptionRecipe": "Rice and beans is a traditional dish that combines rice and beans, often flavored with coco cream and spices. It is a significant part of Caribbean cuisine, particularly in Costa Rica",
+      "completeRecipe": false
+    }
+  ]
 }

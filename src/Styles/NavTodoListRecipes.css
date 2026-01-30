@@ -73,7 +73,7 @@
 .btnCloseSession:hover {
     background-color: #201111; /* Azul más oscuro */
     border-color: #000000;
-    color: #fff895ec;
+    color: #fbffc7;
     box-shadow:  inset 0 0 10px #ff0000;
 }
 

@@ -2,7 +2,6 @@
     
     font-family: 'Arial', sans-serif;
     min-height: 100vh; 
-    background-color: #001a1f; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,27 +11,28 @@
 
 
 .TituloP {
-    color: #a7d0e7; 
-    text-shadow: 0 0 5px #083b53, 0 0 15px #07a6f0;
+    color: #f3f3f3; 
+    text-shadow: 0 0 5px #0a0000, 0 0 15px #000000;
     margin-bottom: 2.5rem;
     font-size: 2.2rem;
     font-weight: 700;
     text-align: center;
     line-height: 1.2;
     padding: 0 1rem; 
+    border-bottom: 2px solid white;
 }
 
 
 
 .FormContainer {
-    background-color: #002025;
+    background-color: #130601;
     padding: 2.5rem;
     border-radius: 8px; 
-    box-shadow: 0 4px 12px rgb(107, 213, 255); 
+    box-shadow: 0 4px 12px rgb(255, 255, 255); 
     width: 100%;
     max-width: 450px; 
-    border: 2px solid #78aeff;
-    border-top: 5px solid #00232c; 
+    border: 2px solid #f3f3f3;
+    border-top: 5px solid #330303; 
 }
 
 /* Título interno (si existe) */
@@ -43,11 +43,11 @@
 
 .tituloOnFormRecipes {
    
-    color: #6bb9e6; 
+    color: #fffc5f; 
     font-size: 1.5rem;
     margin: 0;
     font-weight: 600;
-    text-shadow: 0 0 5px #000000;
+    text-shadow: 0 0 5px #f8f7b1;
 }
 
 
@@ -61,7 +61,7 @@
     
     display: block; 
     font-size: 1rem; 
-    color: #d6fc30;
+    color: #e7e7e7; 
     margin-bottom: 0.5rem;
     font-weight: 500;
     text-align: center; 
@@ -74,7 +74,7 @@
     
     background-color: #000000; 
     color: #ffffff; 
-    border: 1px solid #7abfff; 
+    border: 1px solid #fdfb61;
     
     border-radius: 4px;
     font-size: 0.9rem;
@@ -100,7 +100,7 @@
     
     background-color: #3d3d3da6; 
     color: #f5f4f4;
-    border: 2px solid rgb(158, 224, 255);
+    border: 2px solid rgb(247, 247, 247);
 
     border-radius: 4px;
     cursor: pointer;
@@ -111,11 +111,11 @@
 }
 
 .btnPost:hover {
-    background-color: #1d1d1d; 
+     background-color: #1d1d1d; 
     transform: translateY(-1px); 
     color: #dffd35;
     box-shadow: 0 2px 8px rgb(0, 0, 0);
-    border: 2px solid rgb(0, 140, 255);
+    border: 2px solid gold;
 }
 
 
