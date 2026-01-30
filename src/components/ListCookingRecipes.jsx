@@ -151,7 +151,7 @@ function ListCookingRecipes() {
            const editRecipe = {
               "nameRecipe":editName,
               "ingredientsRecipe":editIngredients,
-              "descriptionRecipe" : editDescription,
+              "descriptionRecipe" : editDescription
             }   
             updateRecipes(editRecipe, id)
             setEditingRecipeId(null)

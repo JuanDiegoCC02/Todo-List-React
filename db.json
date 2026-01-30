@@ -26,20 +26,5 @@
       "typeUser": "User"
     }
   ],
-  "recipes": [
-    {
-      "id": "2324",
-      "nameRecipe": "Test ",
-      "ingredientsRecipe": "Test",
-      "descriptionRecipe": "Test",
-      "completeRecipe": true
-    },
-    {
-      "id": "2cfe",
-      "nameRecipe": "Test0.1",
-      "ingredientsRecipe": "test0.1",
-      "descriptionRecipe": "test0.1",
-      "completeRecipe": true
-    }
-  ]
+  "recipes": []
 }

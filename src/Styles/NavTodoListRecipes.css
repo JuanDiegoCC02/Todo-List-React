@@ -2,7 +2,7 @@
 /* navAllContainer */
 .navAllContainer {
     width: 100%;
-    background-color: #262b2a;
+    background-color: #beece3;
     margin: 0 auto;
     font-family: 'Times New Roman', Times, serif;
     position: relative;
@@ -20,7 +20,7 @@
     justify-content: center;
     align-items: center; 
     gap: 2rem; 
-     box-shadow: 0 0 10px 4px #005f96, inset 0 0 10px #000000;
+     box-shadow: 0 0 10px 4px #000000, inset 0 0 10px #290000;
      border-radius: 3px;
 }
 
@@ -36,16 +36,16 @@
 
 /* Estilo del enlace (Link) */
 .navLi a {
-    text-decoration: none;
-    color: #00a9d3;
+    text-decoration: none;  
+    color: #660000;
     padding-bottom: 5px; 
     transition: color 0.3s ease; 
 }
 
 .navLi a:hover {
-    color: #27ffff; 
-    text-shadow: 0 0 5px #050050, 0 0 15px #050050;
-    border-bottom: 2px ridge #66e4fd; 
+    color: #fbff00; 
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #050000;
+    border-bottom: 2px ridge #720000; 
 }
 
 

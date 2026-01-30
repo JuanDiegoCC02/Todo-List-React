@@ -13,8 +13,8 @@
 
 
 .TitleSignIn {
-    color: #a7d0e7; 
-    text-shadow: 0 0 5px #083b53, 0 0 15px #07a6f0;
+    color: #f3f3f3; 
+    text-shadow: 0 0 5px #0a0000, 0 0 15px #000000;
     margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: 700;
@@ -24,14 +24,14 @@
 
 
 .FormSignIn {
-    background-color: #002025;
+    background-color: #130601;
     padding: 2rem 2.5rem; 
     border-radius: 8px;    
-    box-shadow: 0 4px 12px rgb(107, 213, 255); 
+    box-shadow: 0 4px 12px rgb(255, 255, 255); 
     width: 100%;
     max-width: 350px; 
-    border: 2px solid #78aeff;
-    border-top: 5px solid #00232c; 
+    border: 2px solid #f3f3f3;
+    border-top: 5px solid #330303; 
 
 }
 
@@ -45,7 +45,7 @@
 .LbFormSignIn {
     display: block; 
     font-size: 1rem;
-    color: #d6fc30; 
+    color: #e7e7e7; 
     margin-bottom: 0.5rem;
     font-weight: 500;
     text-align: center;
@@ -55,24 +55,23 @@
 .InpFormSignIn {
     width: 100%;
     padding: 0.75rem;
-    
     background-color: #000000; 
     color: #ffffff; 
-    border: 1px solid #7abfff;
+    border: 1px solid #fdfb61;
     border-radius: 4px;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box; 
 }
 .InpFormSignIn:hover{
-     border-color: #000000; 
+    border-color: #dddddd; 
     box-shadow: 0 0 0 1px rgb(221, 221, 221); 
    
 }
 
 .InpFormSignIn:focus {
-    border-color: #000000; 
-    box-shadow: 0 0 0 2px rgb(29, 29, 29); 
+    border-color: #dddddd; 
+    box-shadow: 0 0 0 2px rgb(170, 170, 170); 
    
 }
 
@@ -82,7 +81,7 @@
     padding: 0.9rem;
     background-color: #3d3d3da6; 
     color: #f5f4f4;
-    border: 2px solid rgb(158, 224, 255);
+    border: 2px solid rgb(247, 247, 247);
     border-radius: 4px;
     cursor: pointer;
     font-size: 1.05rem;
@@ -116,7 +115,7 @@
 }
 
 .LinkRegister a:hover {
-    color: #00a2ff;
+    color: #ffe600;
     text-decoration: underline;
 }
 
