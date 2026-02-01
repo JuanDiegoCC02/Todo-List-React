@@ -189,9 +189,9 @@ function ListCookingRecipes() {
      <ul className='UlListRecipes'>   
         {recipes.map ((recipe,index) => (
         <li className='LiListRecipes' key={index}>
-        <strong className='infoListRecipe'> Name:</strong> {recipe.nameRecipe} <br />
+        <strong className='infoListRecipe'> Name:</strong> {recipe.nameRecipe} <br /><br />
 
-        <strong className='infoListRecipe'> Description:</strong> {recipe.descriptionRecipe} <br />
+        <strong className='infoListRecipe'> Description:</strong> {recipe.descriptionRecipe} <br /><br />
 
         <strong className='infoListRecipe'> Ingredients:</strong>  {recipe.ingredientsRecipe} <br />
 
@@ -303,11 +303,11 @@ function ListCookingRecipes() {
    
                 <>
                     {step.text} <span className={`priority-${step.priority}`}>[{step.priority}]</span>
-                    <button className='btnEditStep' onClick={() => handleEditStep(step)}> Edit Step </button>
+                    <button className='btnEditStep' onClick={() => handleEditStep(step)}> Edit </button>
                     <button 
                      className='btnDeleteStep' 
                      onClick={() => handleDeleteStep(recipe.id, step.stepId)}
-                    >Delete Step</button>
+                    >Delete </button>
                 </>
             )}
         </li> 

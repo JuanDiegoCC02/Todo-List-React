@@ -1,6 +1,4 @@
 .ContainerAllForm {
-    
-    font-family: 'Arial', sans-serif;
     min-height: 100vh; 
     display: flex;
     flex-direction: column;
