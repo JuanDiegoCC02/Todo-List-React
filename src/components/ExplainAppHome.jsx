@@ -1,7 +1,10 @@
 import React from 'react'
 import "../Styles/ExplainAppHome.css"
-import formImgRecipes from '../images/formRecipes.png'
-import listImgRecipes from '../images/listGetRecipes.png'
+import formImg from "../images/form-TodoList.png"
+import listImg from "../images/list-TodoList.png"
+import recipeImg from "../images/recipe-TodoList.png"
+import stepImg from "../images/step-TodoList.png"
+
 
 
 function ExplainAppHome() {
@@ -11,14 +14,24 @@ function ExplainAppHome() {
 
   <div className='containerAllCardsHome'>
         <div className='containerCardHome'>
-            <h3 className='TitleExplainApp'>Recipe creation form</h3>
+            <h3 className='TitleExplainApp'>Recipe Creation Form</h3>
             <strong className='DescriptionApp'>Description</strong>
-            <div className='containerImgExplain'><img className='ImgExplain' src={formImgRecipes} alt="" /></div>
-        </div><br /><br />
+            <div className='containerImgExplain'><img className='ImgExplain' src={formImg} alt="" /></div>
+        </div>
+         <div className='containerCardHome'>
+            <h3 className='TitleExplainApp'> Recipe Counter </h3>
+            <strong className='DescriptionApp'>Description</strong>
+            <div className='containerImgExplain'><img className='ImgExplain' src={listImg} alt="" /></div>
+        </div>
+         <div className='containerCardHome'>
+            <h3 className='TitleExplainApp'>Get Recipe List</h3>
+            <strong className='DescriptionApp'>Description</strong>
+            <div className='containerImgExplain'><img className='ImgExplain' src={recipeImg} alt="" /></div>
+        </div>
           <div className='containerCardHome'>
-            <h3 className='TitleExplainApp'>Get the Recipe list</h3>
+            <h3 className='TitleExplainApp'>Add steps to the Recipe</h3>
             <strong className='DescriptionApp'>Desription</strong>
-            <div className='containerImgExplain'><img className='ImgExplain' src= {listImgRecipes} alt="" /></div>
+            <div className='containerImgExplain'><img className='ImgExplain' src= {stepImg} alt="" /></div>
         </div>
   </div>
 

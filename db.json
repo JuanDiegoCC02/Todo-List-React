@@ -39,6 +39,12 @@
           "text": "Cook the chicken in the pressure cooker in the pressure cooker, with the onion, red pepper and some seasonings to taste.",
           "priority": "High",
           "isCompleted": false
+        },
+        {
+          "stepId": 1769997154860,
+          "text": "Chop an onion, a chili pepper, and a tomato into fine pieces, then fry them in a pot with oil and butter, then add the shredded chicken and the precooked rice.",
+          "priority": "Medium",
+          "isCompleted": false
         }
       ]
     },

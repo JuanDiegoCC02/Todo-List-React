@@ -1,135 +1,155 @@
-/* ======================================================= */
-/* 1. Estilos Globales y Contenedor Principal */
-/* ======================================================= */
+/* CONTENEDOR PRINCIPAL DEL HOME */
+.contianerHome {
 
-/* Contenedor principal del componente Home */
-.containerHome {
-    width: 100%;
-    /* Utilizar el mismo color de fondo del nav para continuidad */
-    background-color: #262b2a; 
-    margin: 0 auto;
-    /* Usar la misma fuente del nav */
-    font-family: 'Times New Roman', Times, serif; 
-    color: #d3d2d2; /* Color de texto claro para el fondo oscuro */
-    padding: 2rem 0;
-    min-height: 100vh; /* Para asegurar que ocupe toda la altura visible */
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f3f3f3;
 }
 
-/* ======================================================= */
-/* 2. Título Principal */
-/* ======================================================= */
-
-/* Contenedor del título principal */
+/* SECCIÓN DEL TÍTULO */
 .containerTitleHome {
     text-align: center;
-    padding: 1rem 2rem 2rem;
+    margin-bottom: 5rem;
+    max-width: 900px;
+    position: relative;
+    padding-bottom: 1.5rem;
 }
 
-/* Estilo para el título H1 */
+
+.containerTitleHome::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #fffc5f, transparent);
+    box-shadow: 0 0 15px #fffc5f;
+}
+
 .TitleHome {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #00a9d3; /* Color de enlace del nav */
-    /* Usar la sombra de texto similar a la del hover del enlace del nav */
-    text-shadow: 0 0 5px #050050, 0 0 15px #050050; 
-    border-bottom: 2px ridge #66e4fd; /* Borde similar al hover del enlace del nav */
-    display: inline-block; /* Para que el borde se ajuste al texto */
-    padding-bottom: 0.5rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
     margin: 0;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
-/* ======================================================= */
-/* 3. Contenedores de Tarjetas (Cards) */
-/* ======================================================= */
-
-/* Contenedor de todas las tarjetas */
+/* GRID / CARDS */
 .containerAllCardsHome {
-    display: flex;
-    flex-wrap: wrap; /* Permitir que las tarjetas se envuelvan */
-    justify-content: center;
-    gap: 3rem; /* Espacio entre las tarjetas */
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    width: 100%;
+    max-width: 1300px;
 }
 
-/* Estilo para cada tarjeta individual */
 .containerCardHome {
-    /* Anchura que permite 2 columnas en escritorios y 1 en móvil */
-    width: 45%; 
-    max-width: 500px;
-    padding: 1.5rem;
-    /* Borde similar al del navUl */
-    border: 2px solid rgb(172, 172, 172); 
-    /* Sombra similar a la del navUl */
-    box-shadow: 0 0 15px 6px #005f96, inset 0 0 12px #000000; 
-    border-radius: 5px; /* Ligeramente más redondeado */
-    background-color: #333938; /* Un color ligeramente diferente para la card */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #130601;
+    /* Borde sutil que brilla en hover */
+    border: 1px solid rgba(243, 243, 243, 0.1);
+    border-top: 6px solid #330303; 
+    padding: 2.5rem;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.containerCardHome::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, transparent 50%, rgba(255, 252, 95, 0.1) 50%);
 }
 
 .containerCardHome:hover {
-    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
-    box-shadow: 0 10px 20px 8px #005f96, inset 0 0 15px #000000;
+    transform: translateY(-15px) scale(1.02);
+    border-color: #fffc5f;
+    /* Efecto de resplandor oro */
+    box-shadow: 0 20px 40px rgba(255, 252, 95, 0.15);
 }
 
-
-/* Título de la explicación dentro de la tarjeta */
 .TitleExplainApp {
-    font-size: 1.5rem;
-    color: #fff460; /* Color similar al texto del botón de cerrar sesión */
-    margin-top: 0;
-    border-bottom: 1px solid #def704; /* Borde similar al del botón */
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
+    color: #fffc5f;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-/* Descripción (Etiqueta Strong) */
 .DescriptionApp {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #00a9d3;
-    margin-bottom: 0.75rem;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Contenedor de la Imagen */
+.DescriptionApp::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background-color: #330303;
+}
+
 .containerImgExplain {
-    margin-top: 1rem;
-    text-align: center;
+    width: 100%;
+    background-color: #000;
+    border: 1px solid #222;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: auto;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,1);
 }
 
-/* Imagen */
 .ImgExplain {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border: 1px solid #def704; /* Borde similar al del botón de cerrar sesión */
-    border-radius: 4px;
-    box-shadow: 0 0 8px #ff0000; /* Sombra sutil con el color de hover del botón */
+    display: block;
+    filter: grayscale(80%) brightness(0.7);
+    transition: all 0.5s ease;
+}
+
+.containerCardHome:hover .ImgExplain {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.05); 
 }
 
 
-/* ======================================================= */
-/* 4. RESPONSIVIDAD (Móvil) */
-/* ======================================================= */
 
-@media (max-width: 1024px) {
-    .containerCardHome {
-        width: 80%; /* Más ancho en tablets */
-    }
-}
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .TitleHome {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .containerAllCardsHome {
-        flex-direction: column; /* Tarjetas apiladas en móvil */
+        grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 1rem;
+    }
+
+    .contianerHome {
+        padding: 3rem 1.5rem;
     }
 
     .containerCardHome {
-        width: 100%; /* Ancho completo en móvil */
-        max-width: none;
+        padding: 1.5rem;
     }
 }
