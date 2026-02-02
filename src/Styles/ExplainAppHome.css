@@ -31,7 +31,7 @@
 }
 
 .TitleHome {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1rem, 5vw, 2.5rem);
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 900;
@@ -43,7 +43,7 @@
 /* GRID / CARDS */
 .containerAllCardsHome {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     width: 100%;
     max-width: 1300px;
@@ -51,10 +51,9 @@
 
 .containerCardHome {
     background-color: #130601;
-    /* Borde sutil que brilla en hover */
     border: 1px solid rgba(243, 243, 243, 0.1);
     border-top: 6px solid #330303; 
-    padding: 2.5rem;
+    padding: 1.5rem;
     border-radius: 8px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
@@ -62,6 +61,7 @@
     position: relative;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
     overflow: hidden;
+   
 }
 
 .containerCardHome::before {

@@ -32,7 +32,7 @@
       "nameRecipe": "Rice with chicken",
       "ingredientsRecipe": "Chicken Pre-cooked rice Fresh vegetables: onion, red bell peppers, carrot, celery, and tomato Corn and peas Achiote Lizano sauce Seasonings: salt, chicken bouillon, paprika, black pepper, and all-purpose seasoning.",
       "descriptionRecipe": "Costa Rican-style chicken and rice is a dish that combines cooked chicken with rice, vegetables, and spices, and is characterized by its orange-yellow color. This dish is a symbol of Costa Rica's rich culinary heritage.",
-      "completeRecipe": false,
+      "completeRecipe": true,
       "Steps": [
         {
           "stepId": 1769804095323,
